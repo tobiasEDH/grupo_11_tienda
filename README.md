@@ -1,2 +1,3 @@
-"# grupo_11_tienda" 
-"# grupo_11_tienda" 
+Referencias: 
+ 1- https://www.garbarino.com/
+ 2- https://www.cetrogar.com.ar/ .
