@@ -6,6 +6,7 @@ Referencias:
  2- https://www.cetrogar.com.ar/
  3- https://www.easy.com.ar/webapp/wcs/stores/servlet/es/easyar
  4- https://www.diarco.com.ar/
+ 5- https://www.fravega.com/
 
 Las referencias fueron elegidas teniendo en cuenta lo que va a ofrecer nuestro sitio, además de buscar páginas con estéticas interesantes y con mucho margen de ampliación.
 
