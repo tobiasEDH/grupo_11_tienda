@@ -4,9 +4,75 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <link href="./css/index.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9f35c4fd09.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet"> 
+    <title>Inicio</title>
+</head> 
 <body>
-    
+  <header>
+    <div class="nav-top">
+      <img id="logo" src="./img/logo.jpg">
+      <input type="search" name="search" id="search" placeholder="Buscar productos, marcas...">
+    </div>
+    <div class="nav-bottom">
+      <ul class="contenedor1">
+        <li>Categorias<i class=" fas fa-arrow-circle-down"></i></li>
+      </ul>
+      <ul class="contenedor2">
+        <li><a href="http://localhost/crear-cuenta">Crear Cuenta</a></li>
+        <li><a href="http://localhost/ingresar-cuenta">Ingresar</a></li>
+        <li><a href="http://localhost/carrito">Carrito</a></li>
+      </ul>
+    </div>
+    <div class="barra">
+      <i class="fas fa-bars"></i>
+    </div>
+ </header>
+
+ <main>
+   <section class="ofertas">
+    <h3 id="TituloOferta">Ofertas</h3>
+     <article class="productos">
+         <div class="item">
+           <img src="./img/img-tv-samsung-smart.jpg">
+         </div>
+         <div class="detalle">
+           <p id="producto-nombre">Nombre del producto</p>
+           <p id="precio">$80.000</p>
+           <p id="descuento">50% OFF</p>
+         </div>
+     </article>
+
+     <article class="productos">
+      <div class="item">
+        <img src="./img/producto-ejemplo.png">
+      </div>
+      <div class="detalle">
+        <p id="producto-nombre">Nombre del producto</p>
+        <p id="precio">$5.000</p>
+        <p id="descuento"></p>
+      </div>
+     </article>
+
+     <article class="productos">
+      <div class="item">
+        <img src="./img/producto-ejemplo.png">
+      </div>
+      <div class="detalle">
+        <p id="producto-nombre">Nombre del producto</p>
+        <p id="precio">$180.000</p>
+        <p id="descuento">20% OFF</p>
+      </div>
+     </article>
+
+   </section>
+ </main>
+
+ <footer>
+   <p>Copyright Tienda11™</p>
+ </footer>
 </body>
 </html>
