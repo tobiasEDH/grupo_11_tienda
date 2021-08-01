@@ -12,25 +12,26 @@
     <title>Inicio</title>
 </head> 
 <body>
-  <header>
-    <div class="nav-top">
-      <img id="logo" src="./img/logo.jpg">
-      <input type="search" name="search" id="search" placeholder="Buscar productos, marcas...">
+  <header class="main-header">
+    <div class="header-top">
+      <img src="./img/logo.svg" class="logo">
+      <input type="search" name="" id="" placeholder="Buscar Productos" class="search-bar">
+      <a href="#"><i class="fas fa-shopping-cart"></i></a>
     </div>
-    <div class="nav-bottom">
-      <ul class="contenedor1">
-        <li>Categorias<i class=" fas fa-arrow-circle-down"></i></li>
-      </ul>
-      <ul class="contenedor2">
-        <li><a href="http://localhost/crear-cuenta">Crear Cuenta</a></li>
-        <li><a href="http://localhost/ingresar-cuenta">Ingresar</a></li>
-        <li><a href="http://localhost/carrito">Carrito</a></li>
-      </ul>
+    <div class="header-bottom">
+      <a href="#" class="hamburguer-button">
+        <i class="fas fa-bars"></i>
+      </a>
+      <nav class="main-navbar">
+        <ul>
+          <li><a href="#">Sucursales</a></li>
+          <li><a href="#">Centro de Ayuda</a></li>
+          <li><a href="/registro">Creá tu cuenta <i class="fas fa-id-card"></i></a></li>
+          <li><a href="/ingreso">Ingresá <i class="fas fa-sign-in-alt"></i></a></li>
+        </ul>
+      </nav>
     </div>
-    <div class="barra">
-      <i class="fas fa-bars"></i>
-    </div>
- </header>
+  </header>
 
  <main>
    <section class="ofertas">
