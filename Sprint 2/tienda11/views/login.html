@@ -4,9 +4,63 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="./css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/login.css">
+    <script src="https://kit.fontawesome.com/9f35c4fd09.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet"> 
+    <title>Login</title>
 </head>
 <body>
-    
+    <header class="main-header">
+        <div class="header-top">
+            <img src="./img/logo.svg" class="logo">
+            <input type="search" name="" id="" placeholder="Buscar Productos" class="search-bar">
+            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+        </div>
+        <div class="header-bottom">
+            <a href="#" class="hamburguer-button">
+            <i class="fas fa-bars"></i>
+            </a>
+            <nav class="main-navbar">
+            <ul>
+                <li><a href="#">Sucursales</a></li>
+                <li><a href="#">Centro de Ayuda</a></li>
+                <li><a href="/registro">Creá tu cuenta <i class="fas fa-id-card"></i></a></li>
+                <li><a href="/ingreso">Ingresá <i class="fas fa-sign-in-alt"></i></a></li>
+            </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="main-login">
+        <div class="left-login">
+            <div class="login-row">
+                <label for="emailLogin">Email</label>
+                <input type="email" name="emailLogin" id="emailLogin">
+            </div>
+            <div class="login-row">
+                <label for="passwordLogin">Contraseña</label>
+                <input type="password" name="passwordLogin" id="passwordLogin">
+            </div>
+            <div class="login-row">
+                <a href="/"><button>Ingresar</button></a>
+            </div>
+        </div>
+        <div class="right-login">
+            <div class="login-row">
+                <p>O ingresar con:</p>
+                <a href="#"><button>Facebook</button></a>
+                <a href="#"><button>Google</button></a>
+            </div>
+            <div class="login-row">
+                <label for="registerBtn">¿No tenés una cuenta?</label>
+                <a href="/registro"><button id="registerBtn">Registrarme</button></a>
+            </div>
+        </div>
+    </main>
+    <footer style="padding: 5px;">
+        <p>Copyright Tienda11™</p>
+    </footer>
 </body>
 </html>

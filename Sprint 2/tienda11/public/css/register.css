@@ -1,0 +1,76 @@
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+body {
+    height: 100%;
+    background-color: #bebebe;
+}
+.main-register {
+    box-sizing: border-box;
+    height: 95%;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background-color: rgb(233, 233, 233);
+    box-shadow: 0px 1px 5px #646464;
+}
+.main-register button {
+    border-radius: 5px;
+    padding: 5px;
+    width: fit-content;
+}
+.left-register, .right-register {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+}
+.right-register {
+    border-left: solid black 1px;
+}
+.right-register .register-row{
+    height: fit-content;
+}
+.register-row{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    margin-top: 5px;
+}
+.register-row a {
+    width: fit-content;
+    height: fit-content;
+}
+.register-row input {
+    width: 100%;
+}
+
+@media (min-width: 600px) {
+    .main-register {
+        font-size: 20px;
+    }
+    .main-register button{
+        font-size: 20px;
+    }
+}
+@media (min-width: 800px) {
+    .main-register {
+        font-size: 26px;
+    }
+    .right-register .register-row label{
+        width: 100%;
+        text-align: center;
+    }
+    .main-register button{
+        font-size: 32px;
+    }
+}
