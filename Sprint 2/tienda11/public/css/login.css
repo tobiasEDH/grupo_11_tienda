@@ -62,6 +62,21 @@ body {
     padding: 5px;
 }
 
+/* footer */
+
+.foot {
+    position: relative;
+    width: 100vw;
+    bottom: 0px;
+}
+
+.footer {
+    text-align: center;
+    font-weight: bold;
+    padding-top: 4px;
+    background-color: #b15c82;
+}
+
 @media (min-width: 360px) {
     .main-login {
         width: 60%;

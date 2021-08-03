@@ -148,54 +148,57 @@ body{
 }
 
 /*main*/
-main{
-    width:70%;
-    margin: auto;
+main {
     padding-top: 130px;
+    width: 100vw;
+    margin: auto;
 }
-#TituloOferta{
-    margin: 15px 0;
-    font-weight: bold;
+.titulo-principal{
+    padding: 2px 2px 2px 12px;
 }
-.productos{
-    background-color: #ffffff;
-    border-radius: 7px;
-    padding: 2px 10px;
-    margin-bottom: 25px;
-    box-shadow: 0px 1px 5px #646464;
-}
-.productos img{
-    width: 50%;
-    margin: 5% 25%;
-}
-.item{
-    border-bottom: #ebebeb 1px solid;
-    margin: 10px;
-}
-.detalle{
+.contenedor-main{
     display: flex;
     flex-wrap: wrap;
-    text-decoration: underline;
-    text-decoration-color: white;
+    margin-top: 12px;
+    margin-bottom: 24px;
+    padding: 4px;
+    margin-bottom: 12px;
 }
-#producto-nombre{
-    display: block;
-    font-weight: bold;
-    width: 100%;
-    color: black;
+.detalle-compra{
+    display: flex;
+    justify-content: flex-start;
+    width: 100vw;
 }
-#precio{
-    width: 35%;
-    color: black;
+.detalle-compra img{
+    max-width: 120px;
+    align-items: stretch;
 }
-#descuento{
-    font-style: italic;
-    color: #5dbb00;
-    width: 65%;
+.producto-leyenda{
+    padding-left: 4px;
 }
-
+.producto-nombre{
+    margin-bottom: 4px;
+}
+.producto-precio{
+    margin-bottom: 4px;
+}
+.cuadro-total{
+    background-color: whitesmoke;
+    border: #b15c82 1px solid;
+    text-align: right;
+    width: 100vw;
+}
+.subtotal{
+    font-weight: lighter;
+}
+.boton-compra button{
+    background-color: #5a1b37;
+    border-radius: 3px;
+    color: #ebebeb;
+    padding: 4px;
+    margin-top: 6px;
+}
 /* footer */
-
 
 .foot {
     position: relative;
@@ -238,6 +241,9 @@ main{
     .main-navbar a {
         font-size: 1rem;
     }
+    .detalle-compra img{
+        flex-grow: 25%;
+    }
 }
 
 /*Media queries - Tablet*/
@@ -253,9 +259,32 @@ main{
     main {
         padding-top: 200px;
     }
+    .detalle-compra{
+        width: 70%;
+    }
+    .cuadro-total{
+        width: 30%;
+    }
    .productos{
     display: inline-block;
     width: 45%;
     margin: 0px 10px 25px;
    }
+   .contenedor-main{
+    flex-wrap: nowrap;
+    }
+    .opciones-producto{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .producto-precio{
+        padding: 2px 4px;
+    }
+    .cantidad{
+        padding: 2px 4px;
+    }
+    .eliminar {
+        padding: 2px 4px;
+    }
 }
