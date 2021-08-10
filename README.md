@@ -8,3 +8,5 @@ Referencias:
  4- https://www.diarco.com.ar/
 
 Las referencias fueron elegidas teniendo en cuenta lo que va a ofrecer nuestro sitio, además de buscar páginas con estéticas interesantes y con mucho margen de ampliación.
+
+Tablero de trabajo: https://trello.com/b/6BV3tclN
