@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head.ejs') %>
+    <link href="./css/login.css" rel="stylesheet" >
+    <title>Ingreso</title>
+</head>
+<body>
+    <%- include('partials/header.ejs') %>
+   
+    <main class="main-login">
+        <div class="left-login">
+            <div class="login-row">
+                <label for="emailLogin">Email</label>
+                <input type="email" name="emailLogin" id="emailLogin">
+            </div>
+            <div class="login-row">
+                <label for="passwordLogin">Contraseña</label>
+                <input type="password" name="passwordLogin" id="passwordLogin">
+            </div>
+            <div class="login-row">
+                <a href="/"><button>Ingresar</button></a>
+            </div>
+        </div>
+        <div class="right-login">
+            <div class="login-row">
+                <p>O ingresar con:</p>
+                <a href="#"><button>Facebook</button></a>
+                <a href="#"><button>Google</button></a>
+            </div>
+            <div class="login-row">
+                <label for="registerBtn">¿No tenés una cuenta?</label>
+                <a href="/registro"><button id="registerBtn">Registrarme</button></a>
+            </div>
+        </div>
+    </main>
+    <footer class="foot">
+        <%- include('partials/footer.ejs') %>
+      </footer>
+</body>
+</html>

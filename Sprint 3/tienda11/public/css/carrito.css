@@ -1,0 +1,222 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+body{
+    background-color: #ebebeb;
+}
+main{
+    padding-top: 47%;
+    padding-bottom: 15%;
+}
+.main{
+    background-color: #fff;
+    padding: 5% 5%;
+}
+.titulo-principal{
+    padding-top: 5% 0;
+}
+.descripcion-producto{
+    margin-bottom: 5%;
+    border-bottom: 1px solid #ebebeb;
+}
+.descripcion-producto img{
+    width: 50%;
+}
+.opciones-producto{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    margin-bottom: 7%;
+}
+.cantidad{
+    width: 100%;
+}
+.producto-precio{
+    width: 100%;
+}
+.eliminar{
+    position: absolute;
+    left: 37%;
+    top: 4.8vw;
+    font-size: 15px;
+}
+.boton-compra button{
+    width: 35%;
+    height: 10vw;
+    font-size: 15px;
+    color: #fff;
+    background-color: #003c8c;
+    border: none;
+    margin-top: 5%;
+}
+.contenedor-main{
+    padding-bottom: 10%;
+}
+.cuadro-subtotal{
+    padding: 6px;
+    border: 1px solid #000;
+    background-color: #ebebeb;
+}
+.fa-trash-alt{
+    color: #fff;
+    background-color: #003c8c;
+    padding: 7px;
+    font-size: 19px;
+    border-radius: 7px;
+}
+
+@media (min-width:768px){
+    main{
+        padding-top: 27%;
+    }
+    .producto-leyenda{
+        width: 50%;
+        text-align: center;
+        align-self: center;
+        font-size: 19px;
+    }
+    .eliminar{
+        top: 2.6vw;
+        left: 73%;
+    }
+    .eliminar a{
+        padding-top: 7px;
+    }
+    .fa-trash-alt{
+        font-size: 25px;
+    }
+    .descripcion-producto{
+        border-bottom: none;
+        width: 28%;
+        border-right: 1px solid #ebebeb;
+    }
+    .descripcion-producto img{
+        width: 85%;
+    }
+    .detalle-compra{
+        display: flex;
+    }
+    .boton-compra button{
+        width: 25%;
+        height: 8vw;
+    }
+}
+@media (min-width:1200px){
+    .foot{
+        padding: 0;
+    }
+    main{
+        padding-top: 3%;
+    }
+    .main{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .titulo-principal{
+        padding-top: 5% 0;
+        display: inline-block;
+        width: 100%;
+    }
+    .contenedor-top{
+        display: flex;
+    }
+    .contenedor-top p{
+        width: 40%;
+        border-right: 1px solid #ebebeb;
+    }
+    #titulo-producto{
+        width: 40%;
+        border-right: 1px solid #ebebeb; 
+    }
+    #titulo-precio, #titulo-cantidad, #titulo-subtotal{
+        text-align: center;
+    }
+    #titulo-precio{
+        width: 20%;
+        border-right: 1px solid #ebebeb;
+    }
+    #titulo-cantidad{
+        width: 20%;
+        border-right: 1px solid #ebebeb;
+    }
+    #titulo-subtotal{
+        width: 20%;
+    }
+    #producto-precio{
+        border-right: 1px solid #ebebeb;
+        padding: 5% 11% 5% 0;
+    }
+    .contenedor-main{
+        width: 70%;
+    }
+    .descripcion-producto{
+        display: flex;
+        width: 40%;
+    }
+    .descripcion-producto img{
+        width: 30%;
+        margin-right: 5%;
+    }
+    .opciones-producto label{
+        padding: 5% 1% 5% 6%;
+    }
+    .opciones-producto select{
+        height: 2vw;
+        align-self: center;
+    }
+    .detalle-compra{
+        width: 100%;
+        border-top: 1px solid #ebebeb;
+    }
+    .producto-nombre{
+        width: 70%;
+        align-self: center;
+    }
+    .producto-nombre h3{
+        flex-direction: row;
+    }
+    .producto-leyenda{
+        width: 55%;
+        margin-left: 5%;
+    }
+    .boton-compra button{
+        width: 48%;
+        height: 3vw;
+        border-radius: 10px;
+    }
+    .cuadro-subtotal{
+
+    }
+    .cuadro-total{
+        width: 25%;
+    }
+    .cuadro-subtotal h2{
+        margin-bottom: 5%;
+        width: 91%;
+        border-bottom: 1px solid #000;
+        margin: 3% 4%;
+    }
+    .cuadro-subtotal h3{
+        width: 57%;
+        align-self: center;
+    }
+    .subtotal{
+        width: 100%;
+        display: flex;
+    }
+    .subtotal h3{
+        width: 65%;
+    }
+    #subtotal{
+        margin: 2% 3%;
+        width: 25%;
+    }
+    #total{
+        margin: 3% 4%;
+        width: 33%;
+    }
+
+}

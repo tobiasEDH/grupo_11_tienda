@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head.ejs') %>
+    <link href="./css/detalle-del-producto.css" rel="stylesheet">
+    <title>Detalle del producto</title>
+</head>
+<body>
+  <%- include('partials/header.ejs') %>
+   
+      <main>
+          <div class="main">
+          <div class="contenedor-main">
+              <div class="imagen-producto"><img src="./img/img-tv-samsung-smart.jpg"></div>
+              <div class="informacion-adicional">
+                  <div><h3 class="producto-nombre">Samsung Smart TV</h3></div>
+                  <div><h3 class="producto-precio">$80.000</h3></div>
+                  <div class="boton-compra">
+                      <button type="submit">Agregar al carrito</button>
+                  </div>
+              </div>
+          </div>
+          <div class="producto-especificaciones">
+              <h4 class="titular-especificaciones">Especificaciones Técnicas</h4>
+              <ul class="lista-de-especificaciones">
+                  <li class="item-lista">Alto: 60cm</li>
+                  <li class="item-lista">Ancho: 98cm</li>
+                  <li class="item-lista">Profundidad: 18cm</li>
+                  <li class="item-lista">Garantía: 12 meses</li>
+                  <li class="item-lista">Tipo de sonido: Estéreo</li>
+                  <li class="item-lista">Puertos USB: No</li>
+                  <li class="item-lista">HDMI: Sí</li>
+              </ul>
+          </div>
+        </div>
+      </main>
+      
+    <footer class="foot">
+        <%- include('partials/footer.ejs') %>
+    </footer>
+    
+</body>
+</html>

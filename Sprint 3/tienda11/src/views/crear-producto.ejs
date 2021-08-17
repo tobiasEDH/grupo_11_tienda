@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head.ejs') %>
+    <link rel="stylesheet" href="./css/crear-producto.css">
+    <title>Crear producto</title>
+</head>
+<body>
+    <%- include('partials/header.ejs') %>
+    <main>
+        <div class="crear">
+        <h2>Crear nuevo producto</h2>
+        <form action="/" method="GET">
+            <label for="nombre">Nombre del producto</label>
+            <input type="text" name="nombre" id="nombre">
+
+            <label for="descripcion">Descripcion:</label>
+            <input type="text" name="descripcion" id="descripcion">
+
+            <label for="imagen">Agregar imagen: </label>
+            <input type="file" name="imagen" id="imagen" accept=".jpg, .png" multiple>
+
+            <label for="categoria">Categorias: </label>
+            <select name="categoria">
+                <option value=""selected></option>
+                <option value="muebles">Muebles</option>
+                <option value="baño">Baño</option>
+                <option value="televisores">Televisores</option>
+            </select>
+
+            <label for="colores">Colores: </label>
+            <select name="colores">
+                <option value=""selected></option>
+                <option value="azul">Azul</option>
+                <option value="negro">Negro</option>
+                <option value="blanco">Blanco</option>
+            </select>
+
+            <label for="precio">Precio: </label>
+            <input type="number" id="precio" min="1">
+
+            <button type="submit">Enviar</button>
+            <button type="reset">Eliminar</button>
+        </div>
+        </form>
+    </main>
+    <%- include('partials/footer.ejs') %>
+</body>
+</html>

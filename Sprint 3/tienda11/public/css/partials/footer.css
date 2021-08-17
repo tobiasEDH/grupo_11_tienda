@@ -1,0 +1,221 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+/*CELULAR*/
+.foot{
+    background-color: #fff;
+}
+.contenedor-top-footer{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+.contenedor-top-footer a{
+    color: #000;
+    font-size: 10vw;
+    margin: 0 15px;
+    text-align: center;
+    padding-top: 10%;
+}
+.informacion-footer{
+    border-bottom: 1px solid #ebebeb;
+    padding-bottom: 15vw;
+}
+.informacion-footer h6{
+    font-size: 15px;
+}
+.informacion-footer p{
+    font-size: 15px;
+    font-weight: lighter;
+    padding-top: 10px;
+}
+.redes{
+    margin: auto;
+    padding-top: 5%;
+}
+.medios-de-pagos{
+    padding-top: 15%;
+    width: 100%;
+}
+.medios-de-pagos img{
+    width: 90%;
+    position: absolute;
+    top: 30vw;
+    left: 5vw;
+}
+.texto-foot1{
+    position: relative;
+}
+.texto-foot1 p{
+    position: absolute;
+}
+#redes-p{
+    top: -14vw;
+    left: 30vw;
+}
+#pagos-p{
+    top: 10vw;
+    right: 37vw;
+}
+.contenedor-bottom-footer{
+    padding: 8vw 5vw;
+}
+.contenedor-top2-footer{
+    border-bottom: 1px solid #ebebeb;
+    padding-bottom: 20vw;
+}
+#img1{
+    width: 9vw;
+}
+.images-footer{
+    margin: 5vw 0;
+}
+.footer a{
+    width: 40%;
+}
+.footer p{
+    width: 60%;
+}
+/*TABLET*/
+@media (min-width:768px){
+.contenedor-top-footer a{
+    font-size: 5vw;
+}
+#redes-p{
+    left: 40vw;
+}
+#pagos-p{
+    right: 44vw;
+}
+.medios-de-pagos img{
+    width: 75%;
+    top: 25vw;
+    left: 15vw;
+}
+.informacion-footer{
+    padding-bottom: 8vw;
+}
+}
+/*COMPUTADORA*/
+@media (min-width:1200px){
+    .foot{
+        box-shadow: 0 5px 10px;
+        padding: 80px;
+    }
+    /*Contenedor 1*/
+    .contenedor-top2-footer, .contenedor-bottom-footer{
+        display: flex;
+    }
+    .contenedor-top-footer{
+        text-align: center;
+    }
+    .contenedor-bottom-footer{
+        padding: 1vw 5vw;
+        border-bottom: 1px solid #ebebeb;
+    }
+    .medios-de-pagos,.redes{
+        width: 50%;
+    }
+    .medios-de-pagos{
+        width: 100%;
+    }
+    .redes{
+        width: 100%;
+        align-self: center;
+        padding-top: 0%;
+        position: absolute;
+        top: 0%;
+    }
+    .redes a{
+        font-size: 31px;
+        margin: 0px 12px;
+        align-self: center;
+        color: #000;
+        transition: all 450ms;
+    }
+    #redes-p{
+        left: 21.9vw;
+        top: -10vw;
+    }
+    #pagos-p{
+        right: 21.7vw;
+        top: -2.1vw;
+    }
+    #facebook:hover{
+        color: #003c8c;
+    }
+    #twitter:hover{
+        color: #1DA1F2;
+    }
+    #youtube:hover{
+        color: #FF0000;
+    }
+    #instagram:hover{
+        color: #ca3900;
+    }
+    .medios-de-pagos{
+        width: 50%;
+    }
+    .medios-de-pagos img{
+        width: 25%;
+        top: 8vw;
+        left: 33.5vw;
+    }
+    .contenedor-top2-footer{
+        border-bottom: solid 1px #ebebeb;
+        text-align: center;
+        padding-bottom: 3%;
+        position: relative;
+    }
+    .texto-foot1{
+        display: flex;
+        width: 100%;
+    }
+    .texto-foot1 p{
+        width: 50%;
+        font-size: 20px;
+    }
+    /* Contenedor 2*/
+    .informacion-footer{
+        border-bottom: none;
+        border-right: 1px solid #ebebeb;
+        width: 72%;
+        font-size: 30px;
+        padding-top: 24px;
+        padding-bottom: 3vw;
+    }
+    .informacion-footer h6{
+        font-weight: bold;
+    }
+    .informacion-footer p{
+        color: #000;    
+        font-size: 20px;
+        margin-right: 22px;
+        font-weight: lighter;  
+    }
+    .images-footer {
+        align-self: center;
+        margin-left: 4%;
+    }   
+    #img1{
+        width: 15%;
+        margin: 0px 15px;
+    }
+    #img2{
+        width: 46%;
+    }
+    .footer {
+        width: 100%;
+        margin-top: 40px;
+        font-size: 20px;
+        display: flex;
+    }
+    .footer p{
+        width: 90%;
+    }
+    .footer a{
+        width: 60%;
+    }
+}
