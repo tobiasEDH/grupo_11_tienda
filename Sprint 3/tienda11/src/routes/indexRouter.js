@@ -1,6 +1,6 @@
  const express = require('express')
  const router = express.Router()
- const indexController= require('../controllers/indexController')
+ const indexController = require('../controllers/indexController')
 
 router.get('/', indexController.index)
 
@@ -14,4 +14,6 @@ router.get('/producto', indexController.producto)
 
 router.get('/crear-producto', indexController.crearProducto)
 
-module.exports= router;
+router.get('/editar-producto', indexController.editarProducto)
+
+module.exports = router;

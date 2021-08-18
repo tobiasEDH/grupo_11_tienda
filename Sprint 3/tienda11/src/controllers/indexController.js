@@ -16,6 +16,9 @@ const indexController={
     },
     crearProducto: (req,res)=>{
         res.render('crear-producto')
+    },
+    editarProducto: (req,res)=>{
+        res.render('editar-producto')
     }
 }
 module.exports= indexController;
