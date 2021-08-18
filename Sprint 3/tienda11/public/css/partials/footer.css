@@ -6,11 +6,16 @@
 /*CELULAR*/
 .foot{
     background-color: #fff;
+    box-shadow: 0px 1px 15px #646464;
 }
 .contenedor-top-footer{
     display: flex;
     flex-wrap: wrap;
-    position: relative;
+    border-bottom: 1px solid #ebebeb;
+    padding-bottom: 6%;
+}
+#redes-p, #pagos-p{
+    text-align: center;
 }
 .contenedor-top-footer a{
     color: #000;
@@ -36,28 +41,12 @@
     padding-top: 5%;
 }
 .medios-de-pagos{
-    padding-top: 15%;
+    padding-top: 9%;
     width: 100%;
 }
 .medios-de-pagos img{
-    width: 90%;
-    position: absolute;
-    top: 30vw;
-    left: 5vw;
-}
-.texto-foot1{
-    position: relative;
-}
-.texto-foot1 p{
-    position: absolute;
-}
-#redes-p{
-    top: -14vw;
-    left: 30vw;
-}
-#pagos-p{
-    top: 10vw;
-    right: 37vw;
+    width: 85%;
+    margin: 0 8%;
 }
 .contenedor-bottom-footer{
     padding: 8vw 5vw;
@@ -90,19 +79,25 @@
     right: 44vw;
 }
 .medios-de-pagos img{
-    width: 75%;
-    top: 25vw;
-    left: 15vw;
+    width: 50%;
+    margin: 0 25%;
 }
 .informacion-footer{
     padding-bottom: 8vw;
+}
+.footer{
+    display: flex;
+    padding: 2%;
+}
+.footer a{
+    width: 38%;
+    text-align: end;
 }
 }
 /*COMPUTADORA*/
 @media (min-width:1200px){
     .foot{
         box-shadow: 0 5px 10px;
-        padding: 80px;
     }
     /*Contenedor 1*/
     .contenedor-top2-footer, .contenedor-bottom-footer{
@@ -110,23 +105,29 @@
     }
     .contenedor-top-footer{
         text-align: center;
+        border-bottom: 1px solid #ebebeb;
+        padding-bottom: 3%;
     }
     .contenedor-bottom-footer{
         padding: 1vw 5vw;
         border-bottom: 1px solid #ebebeb;
     }
-    .medios-de-pagos,.redes{
-        width: 50%;
+    .texto-foot1{
+        position: static;
+    }
+    .texto-foot1 p{
+        position: static;
     }
     .medios-de-pagos{
         width: 100%;
+        padding-top: 4%;
     }
     .redes{
         width: 100%;
         align-self: center;
         padding-top: 0%;
-        position: absolute;
         top: 0%;
+        padding-top: 4%;
     }
     .redes a{
         font-size: 31px;
@@ -135,16 +136,8 @@
         color: #000;
         transition: all 450ms;
     }
-    #redes-p{
-        left: 21.9vw;
-        top: -10vw;
-    }
-    #pagos-p{
-        right: 21.7vw;
-        top: -2.1vw;
-    }
     #facebook:hover{
-        color: #003c8c;
+        color: #1773EA;
     }
     #twitter:hover{
         color: #1DA1F2;
@@ -155,19 +148,13 @@
     #instagram:hover{
         color: #ca3900;
     }
-    .medios-de-pagos{
-        width: 50%;
-    }
     .medios-de-pagos img{
         width: 25%;
-        top: 8vw;
-        left: 33.5vw;
     }
     .contenedor-top2-footer{
         border-bottom: solid 1px #ebebeb;
         text-align: center;
         padding-bottom: 3%;
-        position: relative;
     }
     .texto-foot1{
         display: flex;
@@ -191,7 +178,7 @@
     }
     .informacion-footer p{
         color: #000;    
-        font-size: 20px;
+        font-size: 16px;
         margin-right: 22px;
         font-weight: lighter;  
     }
@@ -218,4 +205,11 @@
     .footer a{
         width: 60%;
     }
+    .medios-de-pagos img{
+        position: static;
+    }
+    .contenedor-top-footer{
+        position: static;
+    }
+    
 }

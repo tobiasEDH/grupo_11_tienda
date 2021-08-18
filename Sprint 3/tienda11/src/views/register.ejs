@@ -9,37 +9,29 @@
     <%- include('partials/header.ejs') %>
     
     <main class="main-register">
+        <section class="registro">
+            <h2>REGISTRO</h2>
+        <form action="/" method="POST">
         <div class="left-register">
-            <div class="register-row">
-                <label for="nameRegister">Nombre</label>
-                <input type="text" name="nameRegister" id="nameRegister">
-            </div>
-            <div class="register-row">
-                <label for="apellidoRegister">Apellido</label>
-                <input type="text" name="apellidoRegister" id="apellidoRegister">
-            </div>
-            <div class="register-row">
-                <label for="emailegister">Email</label>
-                <input type="email" name="emailRegister" id="emailRegister">
-            </div>
-            <div class="register-row">
-                <label for="passwordRegister">Contraseña</label>
-                <input type="password" name="passwordRegister" id="passwordRegister">
-            </div>
-            <div class="register-row">
-                <label for="passConfirmRegister">Confirmar Contraseña</label>
-                <input type="password" name="passConfirmRegister" id="passConfirmRegister">
-            </div>
-            <div class="register-row">
-                <a href="/"><button>Registrarme</button></a>
-            </div>
+            
+                <input type="text" name="nameRegister" id="nameRegister" placeholder="Nombre completo">
+            
+                <input type="text" name="apellidoRegister" id="apellidoRegister" placeholder="Apellido">
+            
+                <input type="email" name="emailRegister" id="emailRegister" placeholder="Correo electrónico">
+            
+                <input type="password" name="passwordRegister" id="passwordRegister" placeholder="Contraseña">
+            
+                <input type="password" name="passConfirmRegister" id="passConfirmRegister" placeholder="Confirmar contraseña">
+
+                <a href="/"><button type="submit" id="boton-registro">Registrarme</button></a>
         </div>
         <div class="right-register">
-            <div class="register-row">
-                <label for="loginBtn">¿Ya tenés una cuenta?</label>
-                <a href="/ingreso" style="margin-top: 5px;"><button id="loginBtn">Ingresar</button></a>
-            </div>
+                <label for="boton-ingreso">¿Ya tenés una cuenta?</label>
+                <a href="/ingreso"><button id="boton-ingreso">Ingresar</button></a>
         </div>
+    </form>
+    </section>
     </main>
     <footer  class="foot">
         <%- include('partials/footer.ejs') %>

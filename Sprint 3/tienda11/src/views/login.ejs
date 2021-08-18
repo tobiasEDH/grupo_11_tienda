@@ -9,30 +9,34 @@
     <%- include('partials/header.ejs') %>
    
     <main class="main-login">
-        <div class="left-login">
-            <div class="login-row">
-                <label for="emailLogin">Email</label>
-                <input type="email" name="emailLogin" id="emailLogin">
+        <section class="ingreso">
+        <h2>INGRESO</h2>
+
+        <form action="/" method="POST">
+            <div class="left-login">
+                <input type="email" name="emailLogin" id="emailLogin" placeholder="Correo electrónico">
+                <input type="password" name="passwordLogin" id="passwordLogin" placeholder="Contraseña">
+            <div class="checkbox">
+                <input type="checkbox" value="guardar-inicio" id="guardar-inicio" name="guardar-inicio"><label for="guardar-inicio" id="label1">Recordar inicio de sesión</label>
             </div>
-            <div class="login-row">
-                <label for="passwordLogin">Contraseña</label>
-                <input type="password" name="passwordLogin" id="passwordLogin">
+                <a href="/"><button id="boton-ingreso">Ingresar</button></a>
+
             </div>
-            <div class="login-row">
-                <a href="/"><button>Ingresar</button></a>
-            </div>
-        </div>
+        </form>
         <div class="right-login">
-            <div class="login-row">
-                <p>O ingresar con:</p>
-                <a href="#"><button>Facebook</button></a>
-                <a href="#"><button>Google</button></a>
+            <div class="ingreso-fac-go">
+            <p>O ingresar con:</p>
+                <a href="#" id="facebook-ingreso"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" id="google-ingreso"><i class="fab fa-google"></i></a>
             </div>
-            <div class="login-row">
-                <label for="registerBtn">¿No tenés una cuenta?</label>
+            <div class="registrarme">
+            <label for="registerBtn">¿No tenés una cuenta?</label>
                 <a href="/registro"><button id="registerBtn">Registrarme</button></a>
             </div>
         </div>
+        </div>
+        </div>
+        </section>
     </main>
     <footer class="foot">
         <%- include('partials/footer.ejs') %>
