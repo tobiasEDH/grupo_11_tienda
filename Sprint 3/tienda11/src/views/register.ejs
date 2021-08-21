@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <%- include('partials/head.ejs') %>
-    <link href="./css/register.css" rel="stylesheet">
+    <link href="/css/register.css" rel="stylesheet">
     <title>Registro</title>
 </head>
 <body>
@@ -11,24 +11,27 @@
     <main class="main-register">
         <section class="registro">
             <h2>REGISTRO</h2>
-        <form action="/" method="POST">
+        <form action="/registro" method="POST">
         <div class="left-register">
             
-                <input type="text" name="nameRegister" id="nameRegister" placeholder="Nombre completo">
+                <input type="text" name="name" id="nameRegister" placeholder="Nombre completo">
             
-                <input type="text" name="apellidoRegister" id="apellidoRegister" placeholder="Apellido">
-            
-                <input type="email" name="emailRegister" id="emailRegister" placeholder="Correo electrónico">
-            
-                <input type="password" name="passwordRegister" id="passwordRegister" placeholder="Contraseña">
-            
-                <input type="password" name="passConfirmRegister" id="passConfirmRegister" placeholder="Confirmar contraseña">
+                <input type="text" name="lastName" id="apellidoRegister" placeholder="Apellido">
 
-                <a href="/"><button type="submit" id="boton-registro">Registrarme</button></a>
+                <label for="images">Subir fotos del producto:</label>
+                <input type="file" name="images" id="imagenes" accept=".jpg , .png" multiple>
+            
+                <input type="email" name="email" id="emailRegister" placeholder="Correo electrónico">
+            
+                <input type="password" name="password" id="passwordRegister" placeholder="Contraseña">
+            
+                <input type="password" name="confirmpassword" id="passConfirmRegister" placeholder="Confirmar contraseña">
+
+                <button type="submit" id="boton-registro">Registrarme</button>
         </div>
         <div class="right-register">
                 <label for="boton-ingreso">¿Ya tenés una cuenta?</label>
-                <a href="/ingreso"><button id="boton-ingreso">Ingresar</button></a>
+                <button id="boton-ingreso">Ingresar</button>
         </div>
     </form>
     </section>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <%- include('partials/head.ejs') %>
-  <link href="./css/index.css" rel="stylesheet">
+  <link href="/css/index.css" rel="stylesheet">
     <title>Inicio</title>
 </head> 
 <body>
@@ -11,50 +11,22 @@
  <main>
    <section class="ofertas">
     <h3 id="TituloOferta">Ofertas</h3>
-
-     <article class="productos">
+<% productos.forEach(productos=>{ %>
+  <% if(productos.discount > 0){ %>
+    <a href="/productos/detalle/<%= productos.id %>"> 
+      <article class="productos">
          <div class="item">
-           <img src="./img/img-tv-samsung-smart.jpg">
+           <img src="/img/<%= productos.image %>">
          </div>
          <div class="detalle">
-           <p id="precio">$80.000</p>
-           <p id="descuento">50% OFF</p>
-           <p id="producto-nombre">TV Smart 32" - Samsung</p>
+           <p id="precio">$<%= productos.price %></p> 
+           <p id="descuento"><%= productos.discount %>% OFF</p>
+           <p id="producto-nombre"><%= productos.name %></p>
          </div>
-     </article>
-
-     <article class="productos">
-      <div class="item">
-        <img src="./img/img-heladera-patrick.jpg">
-      </div>
-      <div class="detalle">
-        <p id="precio">$59.000</p>
-        <p id="descuento"></p>
-        <p id="producto-nombre">Heladera con freezer - Patrick</p>
-      </div>
-     </article>
-
-     <article class="productos">
-      <div class="item">
-        <img src="./img/img-lavarropa.jpg">
-      </div>
-      <div class="detalle">
-        <p id="precio">$95.000</p>
-        <p id="descuento">20% OFF</p>
-        <p id="producto-nombre">Lavarropa</p>
-      </div>
-     </article>
-
-     <article class="productos">
-      <div class="item">
-        <img src="./img/img-monitor-34.jpg">
-      </div>
-      <div class="detalle">
-        <p id="precio">$165.000</p>
-        <p id="descuento">5% OFF</p>
-        <p id="producto-nombre">Monitor LG Curvo UltraWide 34"</p>
-      </div>
-     </article>
+      </article>
+    </a>
+  <% } %>
+<% }) %>
 
    </section>
  </main>
