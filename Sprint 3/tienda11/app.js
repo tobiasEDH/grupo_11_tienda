@@ -4,6 +4,7 @@ const app= express()
 const rutasIndex = require('./src/routes/indexRouter.js')
 const rutasProductos= require('./src/routes/listaProductosRouter.js')
 const port=3000
+const methodOverride = require('method-override')
 
 
 app.set('view engine', 'ejs')
@@ -13,6 +14,7 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: false}))
 app.use(express.json())
 
+app.use(methodOverride('_method'))
 app.use('/', rutasIndex)
 app.use('/productos', rutasProductos)
 

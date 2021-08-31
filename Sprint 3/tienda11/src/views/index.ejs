@@ -13,7 +13,7 @@
     <h3 id="TituloOferta">Ofertas</h3>
 <% productos.forEach(productos=>{ %>
   <% if(productos.discount > 0){ %>
-    <a href="/productos/detalle/<%= productos.id %>"> 
+    <a href="/productos/<%= productos.id %>"> 
       <article class="productos">
          <div class="item">
            <img src="/img/<%= productos.image %>">

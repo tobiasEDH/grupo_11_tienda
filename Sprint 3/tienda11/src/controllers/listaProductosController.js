@@ -32,5 +32,25 @@ const listaProductosController={
 
             res.redirect('../productos')
     },
+    editarProducto: (req,res)=>{
+        let productoEdicion = productos.find(producto => {
+            return producto.id == req.params.id
+        })
+        res.render('editar-producto', {producto: productoEdicion})
+    },
+    enviarProductoEditado: (req,res) => {
+        let productoNuevo = {
+            id: req.params.id,
+            name: req.body.name,
+            image: req.body.images,
+            discount: req.body.discount,
+            price: req.body.price
+        }
+        let productosActualizados = productos
+        productosActualizados[req.params.id - 1] = productoNuevo
+        let productosJSON= JSON.stringify(productosActualizados)
+        fs.writeFileSync(productosPath, productosJSON)
+        res.redirect('../productos/'+req.params.id)
+    }
 }
 module.exports= listaProductosController;
