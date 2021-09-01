@@ -11,7 +11,11 @@ const listaProductosController={
         let productoDetalle= productos.find(producto=>{
             return producto.id == req.params.id
         })
-        res.render('detalle-producto', {producto: productoDetalle})
+        if(productoDetalle != undefined || productoDetalle != null){
+            res.render('detalle-producto', {producto: productoDetalle})
+        }else{
+            res.render('listado', { productos })
+        }
     },
     crearProducto: (req,res)=>{
         res.render('crear-producto')
@@ -36,7 +40,11 @@ const listaProductosController={
         let productoEdicion = productos.find(producto => {
             return producto.id == req.params.id
         })
-        res.render('editar-producto', {producto: productoEdicion})
+        if(productoEdicion != undefined || productoEdicion != null){
+            res.render('editar-producto', {producto: productoEdicion})
+        }else{
+            res.render('listado', { productos })
+        }
     },
     enviarProductoEditado: (req,res) => {
         let productoNuevo = {
@@ -51,6 +59,16 @@ const listaProductosController={
         let productosJSON= JSON.stringify(productosActualizados)
         fs.writeFileSync(productosPath, productosJSON)
         res.redirect('../productos/'+req.params.id)
+    },
+    borrarProducto: (req,res) => {
+        if(req.params.id != undefined){
+            let productosActualizados = productos
+            if(productosActualizados.find(producto=>{return producto.id == req.params.id}) != undefined){
+                productosActualizados.splice(req.params.id - 1, 1)
+                console.log(productosActualizados)
+            }
+        }
+        res.render('listado', { productos })
     }
 }
 module.exports= listaProductosController;

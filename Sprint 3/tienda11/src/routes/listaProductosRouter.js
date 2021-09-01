@@ -14,6 +14,8 @@ router.get('/:id', listaProductosController.detalle)
 
 router.put('/:id', listaProductosController.enviarProductoEditado)
 
+router.delete('/:id', listaProductosController.borrarProducto)
+
 // Edicion de producto
 router.get('/:id/editar', listaProductosController.editarProducto)
 
