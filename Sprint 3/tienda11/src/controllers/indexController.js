@@ -2,8 +2,8 @@ const path = require('path')
 const fs = require('fs')
 const productosPath = path.join(__dirname,'../data/productos.json')
 const productos = JSON.parse(fs.readFileSync(productosPath,'utf-8'))
-const usuariosPath = path.join(__dirname,'../data/usuarios.json')
-const usuarios = JSON.parse(fs.readFileSync(usuariosPath,'utf-8'))
+const usersPath = path.join(__dirname,'../data/usuarios.json')
+const users = JSON.parse(fs.readFileSync(usersPath,'utf-8'))
 
 const indexController={
     index: (req,res)=>{
@@ -13,8 +13,8 @@ const indexController={
         res.render('register')
     },
     enviarRegistro: (req,res)=>{
-        let usuario={
-            id: usuarios.length +1,
+        let user = {
+            id: users.length +1,
             name: req.body.name,
             lastName: req.body.lastName,
             email: req.body.email,
@@ -22,18 +22,18 @@ const indexController={
             images: req.body.images
         }
         
-        let usuariosActualizados;
-        if(usuarios == ""){
-             usuariosActualizados= []
+        let usersActualizados;
+        if(users == ""){
+             usersActualizados= []
         }else{
-            usuariosActualizados=usuarios
+            usersActualizados = users
         }
 
-        usuariosActualizados.push(usuario)
+        usersActualizados.push(user)
 
-        let usuariosJSON= JSON.stringify(usuariosActualizados)
+        let usersJSON= JSON.stringify(usersActualizados)
 
-        fs.writeFileSync(usuariosPath, usuariosJSON)
+        fs.writeFileSync(usersPath, usersJSON)
 
         res.redirect('/')
     },

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head.ejs') %>
+    <link href="/css/listado-usuarios.css" rel="stylesheet">
+    <title>Listado de productos</title>
+</head>
+<body>
+    <%- include('partials/header.ejs') %>
+    <main>
+        <% users.forEach(users=>{ %>
+        <a id="link-usuario" href="/users/<%= users.id %>">
+            <article class="productos">
+            <div class="lastName">
+                <img src="/img/<%= users.lastName%>">
+            </div>
+            <div class="detalle">
+                <p id="name"><%= users.name%></p>
+                
+                <p id="images"><%= users.images%></p>
+                
+                <p id="email"><%= users.email%></p>
+            </div>
+        </article>
+        </a>
+        <% }) %>
+    </main>
+    <%- include('partials/footer.ejs') %>
+</body>
+</html>

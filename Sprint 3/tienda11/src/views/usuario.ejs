@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <%- include('partials/head.ejs') %>
-    <link href="/css/register.css" rel="stylesheet">
+    <link href="/css/usuario.css" rel="stylesheet">
     <title>Registro</title>
 </head>
 <body>
@@ -10,24 +10,22 @@
     
     <main class="main-register">
         <section class="registro">
-            <h2>REGISTRO</h2>
+            <h2>Detalle de usuario</h2>
         <form action="/registro" method="POST">
         <div class="left-register">
             
-                <input type="text" name="name" id="nameRegister" placeholder="Nombre completo">
+                <input type="text" name="name" id="nameRegister" value="<%= users.name%>">
             
-                <input type="text" name="lastName" id="apellidoRegister" placeholder="Apellido">
+                <input type="text" name="lastName" id="apellidoRegister" value="<%= users.lastName%>">
 
                 <label for="images">Foto de perfil:</label>
-                <input type="file" name="images" id="imagenes" accept=".jpg , .png" multiple>
+                <input type="file" name="images" id="imagenes" value="<%= users.images%>">
             
-                <input type="email" name="email" id="emailRegister" placeholder="Correo electrónico">
+                <input type="email" name="email" id="emailRegister" value="<%= users.email%>">
             
                 <input type="password" name="password" id="passwordRegister" placeholder="Contraseña">
-            
-                <input type="password" name="confirmpassword" id="passConfirmRegister" placeholder="Confirmar contraseña">
 
-                <button type="submit" id="boton-registro">Registrarme</button>
+                <button type="submit" id="boton-registro">Editar</button>
         </div>
         <div class="right-register">
                 <label for="boton-ingreso">¿Ya tenés una cuenta?</label>
