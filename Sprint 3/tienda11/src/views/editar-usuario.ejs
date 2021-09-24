@@ -11,17 +11,18 @@
     <main class="main-register">
         <section class="registro">
             <h2>REGISTRO</h2>
-        <form action="/usuario/<%= user.id%>?_method=PUT" method="POST">
+        <form action="/usuario/<%= user.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
         <div class="left-register">
             
                 <input type="text" name="name" id="nameRegister" placeholder="<%= user.name%>">
             
-                <input type="text" name="lastName" id="apellidoRegister" placeholder="Apellido">
+                <input type="text" name="lastName" id="apellidoRegister" placeholder="<%= user.lastName%>">
 
                 <label for="images">Foto de perfil:</label>
+                <img id="imagePreview" src="<%= user.image != "" ? user.image: ""%>" alt="Preview">
                 <input type="file" name="images" id="imagenes" accept=".jpg , .png" multiple>
             
-                <input type="email" name="email" id="emailRegister" placeholder="Correo electrónico">
+                <input type="email" name="email" id="emailRegister" placeholder="<%= user.email%>">
             
                 <input type="password" name="password" id="passwordRegister" placeholder="Contraseña">
 

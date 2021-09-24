@@ -52,6 +52,10 @@ main{
 #imagenes{
     border: none;
 }
+.errorMsg {
+    color: red;
+    align-content: center;
+}
 @media (min-width:768px){
     main{
         padding-top: 28%;
@@ -96,6 +100,7 @@ main{
     #boton-registro{
         display: block;
         margin: auto;
+        margin-top: 3%;
         transition: all 450ms;
     }
     #boton-registro:hover{

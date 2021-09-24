@@ -3,7 +3,7 @@ const path = require('path');
 const app = express();
 const rutasIndex = require('./src/routes/indexRouter.js');
 const rutasProductos = require('./src/routes/listaProductosRouter.js');
-const rutasUsers = require('./src/routes/listaUsersRouter.js');
+const rutasUsers = require('./src/routes/usersRouter.js');
 const port = 3000;
 const methodOverride = require('method-override');
 
