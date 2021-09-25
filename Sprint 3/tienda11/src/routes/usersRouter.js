@@ -24,18 +24,20 @@ const storage = multer.diskStorage({
         cb(null, './public/img/users')
     },
     filename: function(req, file, cb){
-        console.log("file: ", file)
+        //console.log("file: ", file)
         cb(null, `${Date.now()}-${file.originalname}`)
     }
 })
 const upload = multer({storage: storage})
 
 //Muestra todo el listado de usuarios de usuarios.json
+router.get('/logout', usersController.logout)
 router.get('/', usersController.listado)
 
 //Muestra detalle de cada usuario
 router.get('/:id', usersController.detalle)
-router.post('/', upload.single('images'), validaciones,usersController.registro)
+router.post('/registro', upload.single('images'), validaciones, usersController.registro)
+router.post('/login', usersController.login)
 router.put('/:id', upload.single('images'), usersController.enviarUsuarioEditado)
 
 router.delete('/:id', usersController.borrarUsuario)

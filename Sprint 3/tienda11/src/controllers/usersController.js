@@ -2,18 +2,19 @@ const fs = require('fs')
 const path = require('path')
 const usersPath = path.join(__dirname,'../data/usuarios.json')
 const { validationResult } = require('express-validator')
+const UserModel = require('../models/User.js')
+const bcryptjs = require('bcryptjs')
 
-const listaUsersController={
+const listaUsersController = {
     listado: (req,res)=>{
-        let usuarios = JSON.parse(fs.readFileSync(usersPath,'utf-8'))
+        let usuarios = UserModel.getUsers()
         //console.log("usuarios: ", usuarios)
         res.render('listado-usuarios', { users: usuarios })
     },
     detalle: (req,res)=>{
-        let usuarios = JSON.parse(fs.readFileSync(usersPath,'utf-8'))
-        let userDetalle = usuarios.find(user=>{
-            return user.id == req.params.id
-        })
+        //console.log('sesion en detalle: ', req.session)
+        let usuarios = UserModel.getUsers()
+        let userDetalle = UserModel.getUserByID(req.params.id)
         if(userDetalle != undefined || userDetalle != null){
             res.render('usuario', {user: userDetalle})
         }else{
@@ -22,33 +23,48 @@ const listaUsersController={
         }
     },
     registro: (req,res) => {
-        let usuarios = JSON.parse(fs.readFileSync(usersPath,'utf-8'))
+        let usuarios = UserModel.getUsers()
         let errors = validationResult(req)
         if(errors.isEmpty()){
             //console.log("body: ", req.body)
-            let userNuevo = {
-                id: usuarios.length + 1,
-                name: req.body.name,
-                images: req.file.filename,
-                lastName: req.body.lastName,
-                email: req.body.email,
-                password: req.body.password,
+            let userInDB = UserModel.getUserByField('email', req.body.email)
+            if(userInDB){
+                res.render('register', { errors: {email: {msg: 'Este email ya se encuentra registrado'}} })
+            }else{
+                let userNuevo = {
+                    id: usuarios.length + 1,
+                    name: req.body.name,
+                    images: req.file.filename,
+                    lastName: req.body.lastName,
+                    email: req.body.email,
+                    password: bcryptjs.hashSync(req.body.password, 10),
+                }
+                UserModel.createUser(userNuevo)
+                res.redirect('../ingreso')
             }
-            let usersActualizados = [...usuarios, userNuevo]
-            let usersJSON = JSON.stringify(usersActualizados)
-            fs.writeFileSync(usersPath, usersJSON)
-            res.redirect('../usuario/'+userNuevo.id)
         }else{
             console.log("errores: ", errors)
             res.render('register', { errors: errors.mapped() })
         }
     },
+    login: (req, res) => {
+        let user = UserModel.getUserByField('email', req.body.email)
+        if(user && bcryptjs.compareSync(req.body.password, user.password)){
+            delete user.password
+            req.session.userLogged = user
+            res.redirect('../usuario/'+user.id)
+        }else{
+            res.render('login', { errors: {login: {msg: 'Email o contraseña incorrectos'}} })
+        }
+    },
+    logout: (req,res) => {
+        req.session.destroy()
+        res.redirect('../ingreso')
+    },
     editarUsuario: (req,res)=>{
-        let usuarios = JSON.parse(fs.readFileSync(usersPath,'utf-8'))
-        let userEdicion = usuarios.find(user => {
-            return user.id == req.params.id
-        })
-        if(userEdicion != undefined || userEdicion != null){
+        let usuarios = UserModel.getUsers()
+        let userEdicion = UserModel.getUserByID(req.params.id)
+        if(userEdicion != undefined && userEdicion != null){
             res.render('editar-usuario', {user: userEdicion})
         }else{
             res.render('listado-usuarios', { users: usuarios })
@@ -61,23 +77,15 @@ const listaUsersController={
             images: req.file.filename,
             lastName: req.body.lastName,
             email: req.body.email,
-            password: req.body.password,
+            password: bcryptjs.hashSync(req.body.password, 10),
         }
-        let usuarios = JSON.parse(fs.readFileSync(usersPath,'utf-8'))
-        let usersActualizados = usuarios
-        usersActualizados[req.params.id - 1] = userNuevo
-        let usersJSON = JSON.stringify(usersActualizados)
-        fs.writeFileSync(usersPath, usersJSON)
+        UserModel.editUser(userNuevo)
         res.redirect('../usuario/'+req.params.id)
     },
     borrarUsuario: (req,res) => {
-        let usuarios = JSON.parse(fs.readFileSync(usersPath,'utf-8'))
+        let usuarios = UserModel.getUsers()
         if(req.params.id != undefined){
-            let usersActualizados = usuarios
-            if(usersActualizados.find(user=>{return user.id == req.params.id}) != undefined){
-                usersActualizados.splice(req.params.id - 1, 1)
-                let usersJSON = JSON.stringify(usersActualizados)
-                fs.writeFileSync(usersPath, usersJSON)
+            if(UserModel.deleteUser(req.params.id)){
                 res.redirect('../usuario')
             }
         }

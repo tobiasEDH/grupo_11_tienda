@@ -4,13 +4,21 @@ const productosPath = path.join(__dirname,'../data/productos.json')
 const productos = JSON.parse(fs.readFileSync(productosPath,'utf-8'))
 const usersPath = path.join(__dirname,'../data/usuarios.json')
 const users = JSON.parse(fs.readFileSync(usersPath,'utf-8'))
+const UserModel = require('../models/User.js')
 
 const indexController={
     index: (req,res)=>{
         res.render('index', {productos})
     },
     registro: (req, res)=>{
-        res.render('register')
+        if(req.session.userLogged != undefined){
+            //console.log('hay un user: ', req.session.userLogged)
+            let userDetalle = UserModel.getUserByID(req.session.userLogged.id)
+            res.render('usuario', { user: userDetalle })
+        }else{
+            //console.log('no hay un user: ', req.session.userLogged)
+            res.render('register')
+        }
     },
     enviarRegistro: (req,res)=>{
         let user = {
@@ -38,7 +46,14 @@ const indexController={
         res.redirect('/')
     },
     ingreso: (req,res)=>{
-        res.render('login')
+        if(req.session.userLogged != undefined){
+            //console.log('hay un user: ', req.session.userLogged)
+            let userDetalle = UserModel.getUserByID(req.session.userLogged.id)
+            res.render('usuario', { user: userDetalle })
+        }else{
+            //console.log('no hay un user: ', req.session.userLogged)
+            res.render('login')
+        }
     },
     carrito: (req,res)=>{
         res.render('carrito')

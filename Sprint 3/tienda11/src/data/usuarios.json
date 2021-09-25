@@ -1,1 +1,34 @@
-[{"id":"1","name":"Jorge","images":"1632518826091-UIiHw_7d.jpg","lastName":"Perez","email":"jorgeperez78@gmail.com","password":"1234"},{"id":"2","name":"Maria","images":"1632518712225-maria.jpg","lastName":"Olivares","email":"maria0000@hotmail.com","password":"1234"}]
+[
+ {
+  "id": "1",
+  "name": "Jorge",
+  "images": "1632518826091-UIiHw_7d.jpg",
+  "lastName": "Perez",
+  "email": "jorgeperez78@gmail.com",
+  "password": "1234"
+ },
+ {
+  "id": "2",
+  "name": "Maria",
+  "images": "1632518712225-maria.jpg",
+  "lastName": "Olivares",
+  "email": "maria0000@hotmail.com",
+  "password": "1234"
+ },
+ {
+  "id": "3",
+  "name": "Pedro",
+  "images": "1632602558249-pedro.png",
+  "lastName": "Wilson",
+  "email": "pedro2511@yahoo.com",
+  "password": "$2a$10$OAiKVhuC7/HbO47bm4lanekhoL2WTLLTflNeVFNfXE7KPlAzMwmKu"
+ },
+ {
+  "id": 4,
+  "name": "Gustavo",
+  "images": "1632610216002-mifoto.jpg",
+  "lastName": "Fuhrman",
+  "email": "gusfuhrman67@gmail.com",
+  "password": "$2a$10$jgFDdk65AYMEQ8zjN1KdX.xTpH.5nSJCyJd.dKj/Xv6itdFS4OyDi"
+ }
+]

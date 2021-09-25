@@ -19,7 +19,9 @@
                 <input type="text" name="lastName" id="apellidoRegister" placeholder="<%= user.lastName%>">
 
                 <label for="images">Foto de perfil:</label>
-                <img id="imagePreview" src="<%= user.image != "" ? user.image: ""%>" alt="Preview">
+                <% if(user.images){ %>
+                    <img id="imagePreview" src="/img/users/<%= user.images%>" alt="Preview">
+                <%} %> 
                 <input type="file" name="images" id="imagenes" accept=".jpg , .png" multiple>
             
                 <input type="email" name="email" id="emailRegister" placeholder="<%= user.email%>">

@@ -12,15 +12,24 @@
         <section class="ingreso">
         <h2>INGRESO</h2>
 
-        <form action="/" method="POST">
+        <form action="/usuario/login" method="POST">
             <div class="left-login">
-                <input type="email" name="emailLogin" id="emailLogin" placeholder="Correo electrónico">
-                <input type="password" name="passwordLogin" id="passwordLogin" placeholder="Contraseña">
+                <input type="email" name="email" id="emailLogin" placeholder="Correo electrónico">
+                <% if(locals.errors){ %>
+                    <% if(errors.login){ %>
+                        <p class="errorMsg"><%= errors.login.msg%></p>
+                    <%} %> 
+                <%} %> 
+                <input type="password" name="password" id="passwordLogin" placeholder="Contraseña">
+                <% if(locals.errors){ %>
+                    <% if(errors.login){ %>
+                        <p class="errorMsg"><%= errors.login.msg%></p>
+                    <%} %> 
+                <%} %> 
             <div class="checkbox">
                 <input type="checkbox" value="guardar-inicio" id="guardar-inicio" name="guardar-inicio"><label for="guardar-inicio" id="label1">Recordar inicio de sesión</label>
             </div>
-                <a href="/"><button id="boton-ingreso">Ingresar</button></a>
-
+                <button type="submit" id="boton-ingreso">Ingresar</button>
             </div>
         </form>
         <div class="right-login">
