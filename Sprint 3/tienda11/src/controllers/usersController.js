@@ -11,17 +11,6 @@ const listaUsersController = {
         //console.log("usuarios: ", usuarios)
         res.render('listado-usuarios', { users: usuarios })
     },
-    detalle: (req,res)=>{
-        //console.log('sesion en detalle: ', req.session)
-        let usuarios = UserModel.getUsers()
-        let userDetalle = UserModel.getUserByID(req.params.id)
-        if(userDetalle != undefined || userDetalle != null){
-            res.render('usuario', {user: userDetalle})
-        }else{
-            //console.log("usuarios redirect detalle: ", usuarios)
-            res.render('listado-usuarios', { users : usuarios })
-        }
-    },
     registro: (req,res) => {
         let usuarios = UserModel.getUsers()
         let errors = validationResult(req)
@@ -52,12 +41,17 @@ const listaUsersController = {
         if(user && bcryptjs.compareSync(req.body.password, user.password)){
             delete user.password
             req.session.userLogged = user
+
+            if(req.body.recordar){
+                res.cookie('recordar', req.body.email, { maxAge: (1000*60)*60 })
+            }
             res.redirect('../usuario/'+user.id)
         }else{
             res.render('login', { errors: {login: {msg: 'Email o contraseña incorrectos'}} })
         }
     },
     logout: (req,res) => {
+        res.clearCookie('recordar')
         req.session.destroy()
         res.redirect('../ingreso')
     },
@@ -90,6 +84,17 @@ const listaUsersController = {
             }
         }
         res.render('listado-usuarios', { users: usuarios })
+    },
+    detalle: (req,res)=>{
+        //console.log('sesion en detalle: ', req.session)
+        let usuarios = UserModel.getUsers()
+        let userDetalle = UserModel.getUserByID(req.params.id)
+        if(userDetalle != undefined || userDetalle != null){
+            res.render('usuario', {user: userDetalle})
+        }else{
+            //console.log("usuarios redirect detalle: ", usuarios)
+            res.render('listado-usuarios', { users : usuarios })
+        }
     }
 };
 module.exports = listaUsersController;

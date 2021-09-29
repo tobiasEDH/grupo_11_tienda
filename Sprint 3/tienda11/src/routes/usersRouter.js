@@ -2,6 +2,8 @@ const express = require('express')
 const path = require('path');
 const router = express.Router()
 const usersController = require('../controllers/usersController')
+const guestMiddleware = require('../middlewares/guestMiddleware')
+const authMiddleware = require('../middlewares/authMiddleware')
 const { body } = require('express-validator')
 const validaciones = [
     body('name').notEmpty().withMessage("Debes completar el campo de nombre"),
@@ -32,10 +34,10 @@ const upload = multer({storage: storage})
 
 //Muestra todo el listado de usuarios de usuarios.json
 router.get('/logout', usersController.logout)
-router.get('/', usersController.listado)
+router.get('/', authMiddleware,usersController.listado)
 
 //Muestra detalle de cada usuario
-router.get('/:id', usersController.detalle)
+router.get('/:id', authMiddleware,usersController.detalle)
 router.post('/registro', upload.single('images'), validaciones, usersController.registro)
 router.post('/login', usersController.login)
 router.put('/:id', upload.single('images'), usersController.enviarUsuarioEditado)
@@ -43,6 +45,6 @@ router.put('/:id', upload.single('images'), usersController.enviarUsuarioEditado
 router.delete('/:id', usersController.borrarUsuario)
 
 // Edicion de usuario
-router.get('/:id/editar', usersController.editarUsuario)
+router.get('/:id/editar', authMiddleware,usersController.editarUsuario)
 
 module.exports = router;

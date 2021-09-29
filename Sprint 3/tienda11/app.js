@@ -1,5 +1,6 @@
 const express = require('express');
 const session = require('express-session')
+const cookies = require('cookie-parser')
 const path = require('path');
 const app = express();
 const rutasIndex = require('./src/routes/indexRouter.js');
@@ -7,15 +8,8 @@ const rutasProductos = require('./src/routes/listaProductosRouter.js');
 const rutasUsers = require('./src/routes/usersRouter.js');
 const port = 3000;
 const methodOverride = require('method-override');
+const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware.js');
 
-const userLogged = (req,res,next) => {
-    res.locals.isLogged = false
-    if(req.session && req.session.userLogged){
-        res.locals.isLogged = true
-        res.locals.id = req.session.userLogged.id
-    }
-    next()
-}
 
 app.use(session({
     secret: 'secret',
@@ -23,7 +17,10 @@ app.use(session({
     saveUninitialized: false
 }))
 
-app.use(userLogged)
+app.use(cookies())
+
+app.use(userLoggedMiddleware)
+
 
 app.set('view engine', 'ejs');
 app.set('views', './src/views');
@@ -31,6 +28,7 @@ app.set('views', './src/views');
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
+
 
 app.use(methodOverride('_method'));
 app.use('/', rutasIndex);

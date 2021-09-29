@@ -56,6 +56,7 @@ const indexController={
         }
     },
     carrito: (req,res)=>{
+        console.log(req.cookies.recordar)
         res.render('carrito')
     },
 

@@ -30,5 +30,21 @@
   "lastName": "Fuhrman",
   "email": "gusfuhrman67@gmail.com",
   "password": "$2a$10$jgFDdk65AYMEQ8zjN1KdX.xTpH.5nSJCyJd.dKj/Xv6itdFS4OyDi"
+ },
+ {
+  "id": 5,
+  "name": "Santiago",
+  "images": "1632777749736-iphone-8-plus-apple.jpg",
+  "lastName": "Chappa",
+  "email": "monito@gmail.com",
+  "password": "$2a$10$rave9Td6MVpNUcfOVQ493OZ2VWyaRxAU4rt0YvqqF56UiDXodx2O6"
+ },
+ {
+  "id": 6,
+  "name": "Jorge",
+  "images": "1632797995892-mesa-de-trabajo-120-x-70-cm.jpg",
+  "lastName": "Perez",
+  "email": "jorgeperez@gmail.com",
+  "password": "$2a$10$TYcCWI5UqZSGYJ99aejUouNefqxdT3sXeCfAqmMj9EtD5M0iV7dQe"
  }
 ]
