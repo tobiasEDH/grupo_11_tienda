@@ -61,7 +61,7 @@ CREATE TABLE `usuario` (
   `Imagen` varchar(100) NOT NULL,
   `Apellido` varchar(100) NOT NULL,
   `Email` varchar(100) NOT NULL,
-  `Contraseña` varchar(100) NOT NULL,
+  `Contraseña` varchar(500) NOT NULL,
   `ID_Carrito` int(11) NOT NULL,
   PRIMARY KEY (`ID_Usuario`),
   KEY `usuario_FK` (`ID_Carrito`),
