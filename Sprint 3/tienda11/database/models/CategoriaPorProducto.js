@@ -9,14 +9,12 @@ module.exports = (sequelize, dataTypes) => {
     }
     let config = {
         tableName: "category_product",
+        tableName: "categoriaporproducto",
         timestamps: false
-    }
-    const ColorPorProducto = sequelize.define(alias, cols, config)
-
     ColorPorProducto.associate = function(models){
         ColorPorProducto.belongsTo(models.Categorias, { as:"category", foreignKey: "id_category" })
         ColorPorProducto.belongsTo(models.Productos, { as:"product", foreignKey: "id_product" })
     }
-
+    }
     return ColorPorProducto
 }

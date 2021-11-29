@@ -63,6 +63,10 @@ main{
     color: red;
     align-content: center;
 }
+.errorMsg {
+    color: red;
+    align-content: center;
+}
 @media (min-width:768px){
     main{
         padding-top: 28%;
