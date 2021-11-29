@@ -261,4 +261,92 @@ form select{
     #titulo-codigo{
         width: 11%;
     }
+    .error h5{
+        color: red;
+        font-size: 50px;
+        text-align: center;
+        width: 100%;
+        margin-bottom: 3%;
+    }  
+    .error button{
+        border: 1px solid #64646464;
+        border-radius: 6px;
+        padding: 10px;
+        background-color: #ffc029;
+        font-size: 20px;
+        margin: auto;
+        cursor: pointer;
+    }
+    .error button a{
+        text-decoration: none;
+        color: #000;
+    }
+    .error{
+        background-color: #ffffff;
+        padding: 7vw;
+        box-shadow: 0px 2px 13px #000;
+        display: flex;
+        flex-wrap: wrap;    
+    }
+    .img-error {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 3%;
+    }
+    .img-error img{
+        width: 13%;
+        margin: auto;
+    }
+    #modificar-button{
+        background-color: rgb(5, 216, 5);
+    }
+    #eliminar-button{
+        background-color: #ff6159;
+    }
+    #carrito, #modificar-button, #eliminar-button{
+        cursor: pointer;
+    }
+    #agregar{
+        width: 100%;
+    }
+    #carrito, #modificar-button, #eliminar-button {
+        border: none;
+        border-radius: 8px;
+        padding: 15px;
+        margin: 0 29%;
+    }
+    #carrito{
+        width: 84%;
+    }
+    #eliminar{
+        width: 50%;
+        margin: 0% 0%;
+    }   
+    #eliminar-button {
+        margin: 0 25%;
+    }
+    #eliminar {
+        width: 50%;
+    }
+    #modificar {
+        width: 50%;
+    }       
+    .botones > form:nth-child(1) {
+        width: 75%;
+        margin: -4% 15%;
+    }
+    .boton-compra {
+        margin: 10% 0%;
+        border: none;
+        border-radius: 8px;
+        padding: 15px;
+    }
+    .botones {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+       
 }

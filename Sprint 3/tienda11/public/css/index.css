@@ -138,4 +138,16 @@ main{
        padding-top: 1%;
        padding-bottom: 5vw;
    }
+   .banner{
+       position: relative;
+       left: -22%;
+       top: -14px;
+   }
+   .banner img{
+       position: absolute;
+       width: 143.5%;
+   }
+   .ofertas{
+       padding-top: 26%;
+   }
 }

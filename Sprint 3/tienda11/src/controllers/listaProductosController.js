@@ -1,36 +1,75 @@
 const fs = require('fs')
 const path = require('path')
-const productosPath = path.join(__dirname,'../data/productos.json')
-const productos = JSON.parse(fs.readFileSync(productosPath,'utf-8'))
+const db = require('../../database/models')
+const Marca = db.Marcas
+const Producto = db.Productos
 
 const listaProductosController={
     listado: (req,res)=>{
-        res.render('listado', { productos })
+        Producto.findAll()
+            .then((productos)=>{
+                return res.render('listado', { productos })        
+            })
+        
     },
     detalle: (req,res)=>{
-        let productoDetalle= productos.find(producto=>{
-            return producto.id == req.params.id
+        Producto.findByPk(req.params.id)
+            .then((producto)=>{
+            return res.render('detalle-producto',{producto})
         })
-        res.render('detalle-producto', {producto: productoDetalle})
+        /*if(productoDetalle != undefined || productoDetalle != null){
+            res.render('detalle-producto', {producto: productoDetalle})
+        }else{
+            res.render('listado', { productos })
+        }*/
     },
     crearProducto: (req,res)=>{
-        res.render('crear-producto')
+        Marca.findAll()
+        .then((marcas)=>{
+            return res.render('crear-producto',{marcas})
+        })
+       
     },
-    enviarProducto: (req,res)=>{
-        let productoNuevo={
-            id: productos.length + 1,
+    enviarProducto: (req,res)=>{ 
+        Producto.create({
             name: req.body.name,
-            image: req.body.images,
             discount: req.body.discount,
-            price: req.body.price,
-            category: req.body.category
-        }
-            let productosActualizado= [...productos, productoNuevo]
-            
-            let productosJSON= JSON.stringify(productosActualizado)
-            fs.writeFileSync(productosPath, productosJSON)
-
+            image: req.file.filename,
+            id_mark: req.body.mark,
+            price: req.body.price
+        })
             res.redirect('../productos')
     },
+    editarProducto: (req,res)=>{
+        Producto.findByPk(req.params.id)
+        .then((producto)=>{
+            return res.render('editar-producto',{producto})
+        })
+    },
+    enviarProductoEditado: (req,res) => {
+        Producto.update({
+            name: req.body.name,
+            discount: req.body.discount,
+            image: req.file.filename,
+            id_mark: req.body.mark,
+            price: req.body.price
+        },
+        {
+            where: {id: req.params.id}
+        })
+        res.redirect('../productos/'+req.params.id)
+    },
+    borrarProducto: (req,res) => {
+        Producto.destroy({
+            where: {id: req.params.id}
+        })
+        res.render('listado', { productos })
+    },
+    listadoProducto: (req,res)=>{
+        Producto.findAll()
+        .then((productos)=>{
+            return res.render('listadoProductos',{productos})
+        })
+    }
 }
 module.exports= listaProductosController;

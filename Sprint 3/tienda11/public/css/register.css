@@ -15,10 +15,16 @@ main{
 .left-register input {
     border-radius: 5px;
     border: 1px solid #d1d1d1;
-    margin: 2% 0;
+    margin: 2% 5%;
     width: 87%;
     height: 14vw;
     padding: 3%;
+}
+.image {
+    border: 1px solid #d1d1d1;
+    border-radius: 6px;
+    padding: 1% 5px;
+    margin: 2% 7%;
 }
 .registro{
     background-color: #fff;
@@ -51,6 +57,11 @@ main{
 }
 #imagenes{
     border: none;
+    margin: auto;
+}
+.errorMsg {
+    color: red;
+    align-content: center;
 }
 @media (min-width:768px){
     main{
@@ -82,7 +93,7 @@ main{
     }
     .left-register input{
         height: 5vw;
-        margin: 2% 0;
+        margin: 2% 10%;
         width: 60%;
     }
     .left-register{
@@ -96,6 +107,7 @@ main{
     #boton-registro{
         display: block;
         margin: auto;
+        margin-top: 3%;
         transition: all 450ms;
     }
     #boton-registro:hover{
@@ -108,5 +120,8 @@ main{
     }
     .right-register{
         margin-bottom: 3%;
+    }
+    .image{
+        margin: 2% 20%;
     }
 }

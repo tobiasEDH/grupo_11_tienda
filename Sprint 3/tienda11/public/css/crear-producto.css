@@ -100,4 +100,8 @@ form input, form select, form label, form button{
         box-shadow: 0 0 5px;
         border: none;
     }
+    .crear h2{
+        padding-bottom: 1%;
+        font-size: 40px;
+    }
 }

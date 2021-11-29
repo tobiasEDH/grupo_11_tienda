@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/css/listadoProductos.css">
+    <%- include('partials/head') %>
+    <title>Listado de productos</title>
+</head>
+<body>
+    <%- include('partials/header') %> 
+    <main>
+    <div class="listado">
+        <ul>
+        <% productos.forEach(producto => { %>
+        <div class="contenido">
+            <li><%= producto.name %> </li>
+            <form action="">
+                <a href=""><i class="fas fa-edit"></i></a>
+            </form>
+            <form action="">
+                <a href=""><i class="fas fa-trash"></i></a>
+            </form>
+            <img src="/img/<%= producto.image %> " class="productos">
+        </div>
+        <% }) %>
+        </ul>
+    </div>
+    </main>
+    <%- include('partials/footer') %> 
+</body>
+</html>

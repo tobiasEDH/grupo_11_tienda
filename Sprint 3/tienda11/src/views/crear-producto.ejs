@@ -10,7 +10,7 @@
     <main>
         <div class="crear">
         <h2>Crear nuevo producto</h2>
-        <form action="/productos/crear" method="POST">
+        <form action="/productos" method="POST">
             <label for="nombre">Nombre del producto</label>
             <input type="text" name="name" id="nombre">
 
@@ -20,15 +20,12 @@
             <label for="imagen">Agregar imagen: </label>
             <input type="file" name="images" id="imagen" accept=".jpg, .png" multiple>
 
-            <label for="category">Categorias: </label>
-            <select name="category">
-                <option value="" selected></option>
-                <option value="muebles">Muebles</option>
-                <option value="baño">Baño</option>
-                <option value="accesorios">Accesorios</option>
-                <option value="cocina">Cocina</option>
-                <option value="tablet">Tablet</option>
-                <option value="celulares">Celulares</option>
+            <label for="mark">Marca: </label>
+            <select name="mark">
+                        <option value=""></option>
+                <% marcas.forEach(marca => { %>
+                        <option value="<%= marca.id %>"><%= marca.name %> </option>
+                <% }) %>
             </select>
 
             <label for="precio">Precio: </label>

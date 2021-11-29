@@ -9,11 +9,11 @@
   <%- include('partials/header.ejs') %>
    
       <main>
-          <div class="main">
+        <div class="main">
           <div class="contenedor-main">
             <section class="left">
             <div class="producto-nombre">
-                <h3><%= producto.name%></h3>
+                <h3><%= producto.name %></h3>
                 <span id="titulo-codigo">Codigo: </span><p id="codigo">MH30vb87M9l</p>
             </div>
               <div class="imagen-producto">
@@ -62,42 +62,29 @@
                     <p>CFT: 0% / TEA: 0% </p>
                 </div>
               </div>
-              <div class="boton-compra">
-                <button type="submit">Agregar al carrito</button>
-            </div>
+              <div class="botones">
+                <form action="/productos/carrito" method="GET">
+                  <a href=""><button type="submit" class="boton-compra">Agregar al carrito</button></a>
+                </form>
+                <% if(locals.isLogged){ %>
+                <form action="/productos/<%= producto.id %>" method="GET" id="modificar">
+                  <a href=""><button id="modificar-button">Modificar</button></a>
+                </form>
+                <form action="/productos/<%= producto.id %>" method="POST" id="eliminar">
+                  <a href=""><button id="eliminar-button">Eliminar</button></a>
+                </form>
+                <% } %>
+              </div>
             </section>
           </div>
           <section class="informacion">
           <div class="producto-descripcion">
               <h4 class="titular-descripcion">Descripcion</h4>
-              <ul class="lista-descripcion">
-                  <li>Alto: 60cm</li>
-                  <li>Ancho: 98cm</li>
-                  <li>Profundidad: 18cm</li>
-                  <li>Garantía: 12 meses</li>
-                  <li>Tipo de sonido: Estéreo</li>
-                  <li>Puertos USB: No</li>
-                  <li>HDMI: Sí</li>
-              </ul>
+      
           </div>
-          <div class="especificaciones">
-            <h4 id="titular-especificaciones">Especificaciones tecnica</h4>
-            <div class="lista-de-especificaciones">
-                <p class="gris">Modelo</p><p class="gris">UN32T4300AGCZB</p>
-                <p>Marca</p><p>Samsung</p>
-                <p class="gris">Origen</p><p class="gris">Argentina</p>
-                <p>Cuotas sin interes</p><p>Hasta 12 cuotas</p>
-                <p class="gris">Tipo TV</p><p class="gris">Smart TV</p>
-                <p>Pantalla</p><p>32"</p>
-                <p class="gris">Tipo de pantalla</p><p class="gris">OLED</p>
-                <p>Resolución Máxima</p><p>4K</p>
-                <p class="gris">Conexión</p><p class="gris">USB, HDMI, WI-FI</p>
-                <p>Garantia de fábrica (meses)</p><p>12</p>
-                <p class="gris">Accesorios</p><p class="gris">Manual / Control remoto</p>
-            </div>
-          </div>
-        </section>
+          </section>
         </div>
+    
       </main>
       
     <footer class="foot">
