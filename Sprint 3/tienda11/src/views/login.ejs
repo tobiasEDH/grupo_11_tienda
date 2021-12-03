@@ -15,11 +15,6 @@
         <form action="/usuario/login" method="POST">
             <div class="left-login">
                 <input type="email" name="email" id="emailLogin" placeholder="Correo electrónico">
-                <% if(locals.errors){ %>
-                    <% if(errors.login){ %>
-                        <p class="errorMsg"><%= errors.login.msg%></p>
-                    <%} %> 
-                <%} %> 
                 <input type="password" name="password" id="passwordLogin" placeholder="Contraseña">
                 <% if(locals.errors){ %>
                     <% if(errors.login){ %>

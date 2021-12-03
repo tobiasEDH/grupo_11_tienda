@@ -10,7 +10,7 @@
     <main>
         <div class="crear">
         <h2>Crear nuevo producto</h2>
-        <form action="/productos" method="POST">
+        <form action="/productos/crear" method="POST" enctype="multipart/form-data">
             <label for="nombre">Nombre del producto</label>
             <input type="text" name="name" id="nombre">
 
@@ -18,7 +18,7 @@
             <input type="text" name="description" id="descripcion">
 
             <label for="imagen">Agregar imagen: </label>
-            <input type="file" name="images" id="imagen" accept=".jpg, .png" multiple>
+            <input type="file" name="images" id="imagen" accept=".jpg, .png" size="180px">
 
             <label for="mark">Marca: </label>
             <select name="mark">

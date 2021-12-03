@@ -17,15 +17,15 @@
                 <span id="titulo-codigo">Codigo: </span><p id="codigo">MH30vb87M9l</p>
             </div>
               <div class="imagen-producto">
-                  <img src="/img/<%= producto.image %>">
+                  <img src="/img/products/<%= producto.image %>">
                 </div>
             </section>
             <section class="right">
               <div class="producto-precio">
-                <h3 id="precio">$<%= producto.price%></h3>
-                <% if(producto.discount > 1){ %>
+                <h3 id="precio">$<%= producto.price.toLocaleString("es",{minimumFractionDigits: 0})%></h3>
+                  
                 <p id="descuento"><%= producto.discount %>% OFF</p>
-                <% }else{producto.discount=""}%>
+                
               </div>
               <div class="informacion-adicional">
                   <h2>Elegi tu forma de pago</h2>
@@ -64,14 +64,14 @@
               </div>
               <div class="botones">
                 <form action="/productos/carrito" method="GET">
-                  <a href=""><button type="submit" class="boton-compra">Agregar al carrito</button></a>
+                 <button type="submit" class="boton-compra">Agregar al carrito</button>
                 </form>
                 <% if(locals.isLogged){ %>
-                <form action="/productos/<%= producto.id %>" method="GET" id="modificar">
-                  <a href=""><button id="modificar-button">Modificar</button></a>
+                <form action="/productos/<%= producto.id %>/editar" method="GET" id="modificar">
+                  <button id="modificar-button">Modificar</button>
                 </form>
-                <form action="/productos/<%= producto.id %>" method="POST" id="eliminar">
-                  <a href=""><button id="eliminar-button">Eliminar</button></a>
+                <form action="/productos/<%= producto.id %>/borrar" method="POST" id="eliminar">
+                  <button id="eliminar-button" type="submit">Eliminar</button>
                 </form>
                 <% } %>
               </div>
@@ -80,8 +80,8 @@
           <section class="informacion">
           <div class="producto-descripcion">
               <h4 class="titular-descripcion">Descripcion</h4>
-      
           </div>
+          <p><%= producto.description %></p>
           </section>
         </div>
     

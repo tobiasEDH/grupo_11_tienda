@@ -66,6 +66,8 @@ form i{
     margin-right: 8px;
     margin-bottom: 20px;
     font-size: 14px;
+    max-width: 365px;
+    border: 1px solid #ebebeb;
 }
 
 

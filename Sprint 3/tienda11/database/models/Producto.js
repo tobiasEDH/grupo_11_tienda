@@ -19,6 +19,9 @@ module.exports = (sequelize, dataTypes) => {
         },
         price: {
             type: dataTypes.FLOAT
+        },
+        description: {
+            type: dataTypes.INTEGER
         }
     }
     let config = {

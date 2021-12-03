@@ -31,12 +31,14 @@ const listaProductosController={
        
     },
     enviarProducto: (req,res)=>{ 
+        console.log(req.file)
         Producto.create({
             name: req.body.name,
             discount: req.body.discount,
             image: req.file.filename,
             id_mark: req.body.mark,
-            price: req.body.price
+            price: req.body.price,
+            description: req.body.description
         })
             res.redirect('../productos')
     },
@@ -52,7 +54,8 @@ const listaProductosController={
             discount: req.body.discount,
             image: req.file.filename,
             id_mark: req.body.mark,
-            price: req.body.price
+            price: req.body.price,
+            description: req.body.description
         },
         {
             where: {id: req.params.id}
@@ -63,7 +66,7 @@ const listaProductosController={
         Producto.destroy({
             where: {id: req.params.id}
         })
-        res.render('listado', { productos })
+        res.redirect('http://localhost:3000/productos')
     },
     listadoProducto: (req,res)=>{
         Producto.findAll()

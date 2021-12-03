@@ -11,10 +11,8 @@ router.get('/ingreso', guestMiddleware,indexController.ingreso)
 router.get('/registro', guestMiddleware, indexController.registro)
 router.post('/registro', indexController.enviarRegistro)
 
-router.get('/carrito-de-compras', indexController.carrito)
+router.get('/carrito', indexController.carrito)
+router.get('/resultado', indexController.search)
 
-
-
-router.get('/editar-producto',authMiddleware,indexController.editarProducto)
 
 module.exports = router;

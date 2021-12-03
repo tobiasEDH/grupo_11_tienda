@@ -4,15 +4,15 @@ const path = require('path')
 const listaProductosController = require('../controllers/listaProductosController')
 const guestMiddleware = require('../middlewares/guestMiddleware')
 const authMiddleware = require('../middlewares/authMiddleware')
-
 const multer = require('multer')
+
 const storage = multer.diskStorage({
     destination: function(req, file, cb){
         cb(null, './public/img/products')
     },
     filename: function(req, file, cb){
         console.log(file)
-        cb(null, `${Date.now()}-${file.originalname}`)
+        cb(null, `${Date.now()}_img_${path.extname(file.originalname)}`)
     }
 })
 const upload = multer({storage})
@@ -25,17 +25,18 @@ router.get('/listado', listaProductosController.listadoProducto)
 
 // Muestra el formulario de crear un producto y el envio de los datos a prodcutos.json
 router.get('/crear', authMiddleware,listaProductosController.crearProducto)
-router.post('/', upload.single('images'), listaProductosController.enviarProducto)
+router.post('/crear', upload.single('images'), listaProductosController.enviarProducto)
 
 // Muestra detalle de cada producto
 router.get('/:id', listaProductosController.detalle)
 
-router.post('/:id', listaProductosController.enviarProductoEditado)
+router.post('/:id/editar', upload.single('images'),listaProductosController.enviarProductoEditado)
 
-router.delete('/:id', listaProductosController.borrarProducto)
+router.post('/:id/borrar', listaProductosController.borrarProducto)
 
 // Edicion de producto
 router.get('/:id/editar', authMiddleware,listaProductosController.editarProducto)
 
+router.get('/carrito')
 
 module.exports= router;

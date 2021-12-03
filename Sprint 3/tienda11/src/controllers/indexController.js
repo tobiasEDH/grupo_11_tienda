@@ -5,6 +5,8 @@ const users = JSON.parse(fs.readFileSync(usersPath,'utf-8'))
 const UserModel = require('../models/User.js')
 const db = require('../../database/models')
 const Producto = db.Productos
+const Sequelize = require('sequelize')
+const Op = Sequelize.Op
 
 const indexController={
     index: (req,res)=>{
@@ -45,8 +47,17 @@ const indexController={
         }
     },
     carrito: (req,res)=>{
-        console.log(req.cookies.recordar)
         res.render('carrito')
+    },
+    search: (req,res)=>{
+        Producto.findAll({
+            where: {
+                search: {[Op.like]:'%'+ req.params.search + '%'}
+            }
+        })
+            .then((resultado)=>{
+                return res.render('resultado',{productos: resultado})
+            })
     }
 }
 module.exports= indexController;
