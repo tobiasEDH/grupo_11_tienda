@@ -13,19 +13,19 @@
           <div class="contenedor-main">
             <section class="left">
             <div class="producto-nombre">
-                <h3><%= producto.name %></h3>
+                <h3><%= producto.Nombre %></h3>
                 <span id="titulo-codigo">Codigo: </span><p id="codigo">MH30vb87M9l</p>
             </div>
               <div class="imagen-producto">
-                  <img src="/img/<%= producto.image %>">
+                  <img src="/img/products/<%= producto.Imagen %>">
                 </div>
             </section>
             <section class="right">
               <div class="producto-precio">
-                <h3 id="precio">$<%= producto.price%></h3>
-                <% if(producto.discount > 1){ %>
-                <p id="descuento"><%= producto.discount %>% OFF</p>
-                <% }else{producto.discount=""}%>
+                <h3 id="precio">$<%= producto.Precio%></h3>
+                <% if(producto.Descuento > 1){ %>
+                <p id="descuento"><%= producto.Descuento %>% OFF</p>
+                <% }else{producto.Descuento=""}%>
               </div>
               <div class="informacion-adicional">
                   <h2>Elegi tu forma de pago</h2>
@@ -57,8 +57,8 @@
                 </form>
                 <div class="informacion-bottom">
                     <img src="/img/tarjetas.png">
-                    <p id="precio-cuotas">12 x $6.666,67 sin interés</p>
-                    <p id="precio-total">Precio total: $<%= producto.price %></p>
+                    <p id="precio-cuotas">12 x $<%= (producto.Precio / 12)%> sin interés</p>
+                    <p id="precio-total">Precio total: $<%= producto.Precio %></p>
                     <p>CFT: 0% / TEA: 0% </p>
                 </div>
               </div>

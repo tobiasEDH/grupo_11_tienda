@@ -4,15 +4,16 @@ const usersPath = path.join(__dirname,'../data/usuarios.json')
 const users = JSON.parse(fs.readFileSync(usersPath,'utf-8'))
 const UserModel = require('../models/User.js')
 const db = require('../../database/models')
-const Producto = db.Productos
+const Producto = require('../models/Producto.js')
 
 const indexController={
-    index: (req,res)=>{
-        Producto.findAll()
-        .then((productos)=>{
-           return res.render('index', {productos})
+    index: async (req,res)=>{
+        let products = await Producto.getProductos()
+        let temp = []
+        products.forEach(producto => {
+            temp.push(producto.dataValues)
         })
-        
+        res.render('index', { productos: temp })
     },
     registro: (req, res)=>{
         if(req.session.userLogged != undefined){

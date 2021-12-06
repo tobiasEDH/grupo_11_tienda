@@ -2,21 +2,22 @@ const fs = require('fs')
 const path = require('path')
 const db = require('../../database/models')
 const Marca = db.Marcas
-const Producto = db.Productos
+const Producto = require('../models/Producto.js')
 
 const listaProductosController={
-    listado: (req,res)=>{
-        Producto.findAll()
-            .then((productos)=>{
-                return res.render('listado', { productos })        
-            })
-        
-    },
-    detalle: (req,res)=>{
-        Producto.findByPk(req.params.id)
-            .then((producto)=>{
-            return res.render('detalle-producto',{producto})
+    listado: async (req,res)=>{
+        let products = await Producto.getProductos()
+        let temp = []
+        products.forEach(producto => {
+            temp.push(producto.dataValues)
         })
+        res.render('listado', { productos: temp })
+    },
+    detalle: async (req,res)=>{
+        let detalleProducto = await Producto.getProductoByID(req.params.id)
+        if(detalleProducto.dataValues){
+            res.render('detalle-producto',{ producto: detalleProducto.dataValues })
+        }
         /*if(productoDetalle != undefined || productoDetalle != null){
             res.render('detalle-producto', {producto: productoDetalle})
         }else{
@@ -28,7 +29,6 @@ const listaProductosController={
         .then((marcas)=>{
             return res.render('crear-producto',{marcas})
         })
-       
     },
     enviarProducto: (req,res)=>{ 
         Producto.create({
@@ -65,11 +65,13 @@ const listaProductosController={
         })
         res.render('listado', { productos })
     },
-    listadoProducto: (req,res)=>{
-        Producto.findAll()
-        .then((productos)=>{
-            return res.render('listadoProductos',{productos})
+    listadoProducto: async (req,res)=>{
+        let products = await Producto.getProductos()
+        let temp = []
+        products.forEach(producto => {
+            temp.push(producto.dataValues)
         })
+        res.render('listado', { productos: temp })
     }
 }
 module.exports= listaProductosController;

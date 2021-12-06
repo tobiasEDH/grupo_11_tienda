@@ -9,12 +9,12 @@
     <%- include('partials/header.ejs') %>
     <main>
         <% users.forEach(user=>{ %>
-        <a id="link-usuario" href="/usuario/<%= user.id %>">
+        <a id="link-usuario" href="/usuario/<%= user.ID_Usuario %>">
             <article class="productos">
-            <img src="/img/users/<%= user.images%>" alt="">
-            <h3><strong>Nombre: </strong><%= user.name%></h3>
-            <h3><strong>Apellido: </strong><%= user.lastName%></h3>
-            <h3><strong>Email: </strong><%= user.email%></h3>
+            <img src="/img/users/<%= user.Imagen%>" alt="">
+            <h3><strong>Nombre: </strong><%= user.Nombre%></h3>
+            <h3><strong>Apellido: </strong><%= user.Apellido%></h3>
+            <h3><strong>Email: </strong><%= user.Email%></h3>
         </article>
         </a>
         <% }) %>

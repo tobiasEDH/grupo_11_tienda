@@ -4,6 +4,7 @@ module.exports = {
     "password": null,
     "database": "electrohouse",
     "host": "127.0.0.1",
+    "port": "3308", // solo tobias
     "dialect": "mysql"
   },
   "test": {
@@ -17,7 +18,7 @@ module.exports = {
     "username": "root",
     "password": null,
     "database": "electrohouse",
-    "database": "database_production",
-    "host": "127.0.0.1"
+    "host": "127.0.0.1",
+    "dialect": "mysql"
   }
 }

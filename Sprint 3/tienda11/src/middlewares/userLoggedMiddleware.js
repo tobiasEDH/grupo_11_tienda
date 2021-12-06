@@ -1,12 +1,12 @@
 const UserModel = require('../models/User.js')
 
-const userLoggedMiddleware = (req,res,next) => {
+const userLoggedMiddleware = async (req,res,next) => {
     res.locals.isLogged = false
 
     let emailUser= req.cookies.recordar
-    let userFromCookies = UserModel.getUserByField('email', emailUser)
+    let userFromCookies = await UserModel.getUserByField('email', emailUser)
 
-    if (userFromCookies) {
+    if (userFromCookies != null && userFromCookies != undefined) {
         req.session.userLogged = userFromCookies
     }
 
@@ -14,8 +14,6 @@ const userLoggedMiddleware = (req,res,next) => {
         res.locals.isLogged = true
         res.locals.userLogged = req.session.userLogged
     }
-    
-
 
    next();
 }

@@ -15,16 +15,16 @@
    <section class="ofertas">
     <h3 id="TituloOferta">Ofertas</h3>
 <% productos.forEach(productos=>{ %>
-  <% if(productos.discount > 0){ %>
-    <a href="/productos/<%= productos.id %>"> 
+  <% if(productos.Descuento > 0){ %>
+    <a href="/productos/<%= productos.ID_Producto %>"> 
       <article class="productos">
          <div class="item">
-           <img src="/img/<%= productos.image %>">
+           <img src="/img/products/<%= productos.Imagen %>">
          </div>
          <div class="detalle">
-           <p id="precio">$<%= productos.price %></p> 
-           <p id="descuento"><%= productos.discount %>% OFF</p>
-           <p id="producto-nombre"><%= productos.name %></p>
+           <p id="precio">$<%= productos.Precio %></p> 
+           <p id="descuento"><%= productos.Descuento %>% OFF</p>
+           <p id="producto-nombre"><%= productos.Nombre %></p>
          </div>
       </article>
     </a>

@@ -1,34 +1,53 @@
 const fs = require('fs')
 const path = require('path')
+const db = require('../../database/models')
+const Carrito = require('./Carrito.js')
 
 const User = {
     filename: path.join(__dirname,'../data/usuarios.json'),
     getData: function(){
         return JSON.parse(fs.readFileSync(this.filename, 'utf-8'))
     },
-    getUsers: function(){
-        return this.getData()
+    getUsers: async function(){
+        return await db.Usuarios.findAll().then((usuarios) => { return usuarios }).catch(e => {console.log(e)})
     },
-    getUserByID: function(id){
+    getUserByID: async function(id){
         let users = this.getData()
         let user = users.find(oneUser => oneUser.id == id)
+        return await db.Usuarios.findByPk(id).then((usuario) => {return usuario}).catch(e => {console.log(e)})
+    },
+    getUserByField: async function(field, text){
+        let temp = {}
+        temp[field] = (text == undefined) ? null : text
+        let user = null
+        if(temp[field] != null){
+            user = await db.Usuarios.findOne({where: temp}).then((usuario) => {return usuario}).catch(e => {console.log(e)})
+            //console.log('user logeado: ', user)
+        }
         return user
     },
-    getUserByField: function(field, text){
-        let users = this.getData()
-        let user = users.find(oneUser => oneUser[field] == text)
-        return user
-    },
-    createUser: function(userData){
-        let users = this.getData()
+    createUser: async function(userData){
+        /*let users = this.getData()
         users.push(userData)
-        fs.writeFileSync(this.filename, JSON.stringify(users, null, ' '))
+        fs.writeFileSync(this.filename, JSON.stringify(users, null, ' '))*/
+        let responseUser
+        let responseCarrito = await Carrito.createCarrito(userData.Nombre)
+        if(responseCarrito != null){
+            //console.log("responseCarrito: ", responseCarrito)
+            userData["ID_Carrito"] = responseCarrito
+            responseUser = await db.Usuarios.create(userData)
+        }
+        //console.log("User Nuevo: ", userData)
+        //console.log("responseUser: ", responseUser)
+        return true
     },
-    deleteUser: function(id){
-        let users = this.getData()
-        if(this.getUserByID(id) != undefined){
-            users.splice(id - 1, 1)
-            fs.writeFileSync(this.filename, JSON.stringify(users, null, ' '))
+    deleteUser: async function(id){
+        let response
+        let user = null
+        user = await db.Usuarios.findByPk(id).then((usuario) => {return usuario}).catch(e => {console.log(e)})
+        if(user){
+            response = await db.Usuarios.destroy({where: {ID_Usuario: id}})
+            response = await Carrito.deleteCarrito(user.dataValues['ID_Carrito'])
             return true
         }else{
             return false
