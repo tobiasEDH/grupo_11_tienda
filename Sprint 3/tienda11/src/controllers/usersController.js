@@ -4,51 +4,49 @@ const usersPath = path.join(__dirname,'../data/usuarios.json')
 const { validationResult } = require('express-validator')
 const UserModel = require('../models/User.js')
 const bcryptjs = require('bcryptjs')
+const db = require('../../database/models')
+const Usuario = db.Usuarios
 
 const listaUsersController = {
     listado: (req,res)=>{
-        let usuarios = UserModel.getUsers()
-        //console.log("usuarios: ", usuarios)
-        res.render('listado-usuarios', { users: usuarios })
+        Usuario.findAll()
+            .then((users)=>{
+                res.render('listado-usuarios', {users})
+            })
     },
     registro: (req,res) => {
-        let usuarios = UserModel.getUsers()
-        let errors = validationResult(req)
-        if(errors.isEmpty()){
-            //console.log("body: ", req.body)
-            let userInDB = UserModel.getUserByField('email', req.body.email)
-            if(userInDB){
-                res.render('register', { errors: {email: {msg: 'Este email ya se encuentra registrado'}} })
-            }else{
-                let userNuevo = {
-                    id: usuarios.length + 1,
-                    name: req.body.name,
-                    images: req.file.filename,
-                    lastName: req.body.lastName,
-                    email: req.body.email,
-                    password: bcryptjs.hashSync(req.body.password, 10),
-                }
-                UserModel.createUser(userNuevo)
-                res.redirect('../ingreso')
-            }
-        }else{
-            console.log("errores: ", errors)
-            res.render('register', { errors: errors.mapped() })
-        }
+        res.render('register')
+    },
+    enviarRegistro: (req,res)=>{
+        Usuario.create({
+            name: req.body.name,
+            image: req.file.filename,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            password: bcryptjs.hashSync(req.body.password, 10)
+        })
+        res.redirect('/ingreso')
     },
     login: (req, res) => {
-        let user = UserModel.getUserByField('email', req.body.email)
-        if(user && bcryptjs.compareSync(req.body.password, user.password)){
-            delete user.password
-            req.session.userLogged = user
-
-            if(req.body.recordar){
-                res.cookie('recordar', req.body.email, { maxAge: (1000*60)*60 })
+        res.render('login')
+    },
+    enviarlogin: (req, res) => {
+        Usuario.findOne({
+            where:{
+                email: req.body.email
             }
-            res.redirect('../usuario/'+user.id)
-        }else{
-            res.render('login', { errors: {login: {msg: 'Email o contraseña incorrectos'}} })
-        }
+        })
+            .then((resultado)=>{
+                // console.log(resultado)    
+                if(resultado && bcryptjs.compareSync(req.body.password, resultado.password)){
+                    delete resultado.password
+                    req.session.userLogged = resultado
+
+                    res.redirect('../usuario/' + resultado.id )
+                }else{
+                    res.render('login', { errors: {login: {msg: 'Email o contraseña incorrectos'}} })
+                }
+            })
     },
     logout: (req,res) => {
         res.clearCookie('recordar')
@@ -56,45 +54,46 @@ const listaUsersController = {
         res.redirect('../ingreso')
     },
     editarUsuario: (req,res)=>{
-        let usuarios = UserModel.getUsers()
-        let userEdicion = UserModel.getUserByID(req.params.id)
-        if(userEdicion != undefined && userEdicion != null){
-            res.render('editar-usuario', {user: userEdicion})
-        }else{
-            res.render('listado-usuarios', { users: usuarios })
-        }
+        Usuario.findOne({
+            where:{
+                id: req.params.id
+            }
+        })
+            .then((usuario)=>{
+                res.render('editar-usuario', {user : usuario})
+            })
     },
     enviarUsuarioEditado: (req,res) => {
-        let userNuevo = {
-            id: req.params.id,
+        Usuario.update({
             name: req.body.name,
-            images: req.file.filename,
+            image: req.file.filename,
             lastName: req.body.lastName,
             email: req.body.email,
             password: bcryptjs.hashSync(req.body.password, 10),
-        }
-        UserModel.editUser(userNuevo)
-        res.redirect('../usuario/'+req.params.id)
+        },
+        {
+            where: {id: req.params.id}
+        })
+        res.redirect('/usuario/' + req.params.id )
     },
     borrarUsuario: (req,res) => {
-        let usuarios = UserModel.getUsers()
-        if(req.params.id != undefined){
-            if(UserModel.deleteUser(req.params.id)){
-                res.redirect('../usuario')
+        Usuario.delete({
+            where:{
+                id: req.params.id
             }
-        }
-        res.render('listado-usuarios', { users: usuarios })
+        })
+        res.render('listado-usuarios', { users : usuarios })
     },
     detalle: (req,res)=>{
         //console.log('sesion en detalle: ', req.session)
-        let usuarios = UserModel.getUsers()
-        let userDetalle = UserModel.getUserByID(req.params.id)
-        if(userDetalle != undefined || userDetalle != null){
-            res.render('usuario', {user: userDetalle})
-        }else{
-            //console.log("usuarios redirect detalle: ", usuarios)
-            res.render('listado-usuarios', { users : usuarios })
-        }
+        Usuario.findOne({
+            where: {
+                id: req.params.id
+            }
+        })
+            .then((usuario)=>{
+                res.render('usuario', {user : usuario})
+            })
     }
 };
 module.exports = listaUsersController;

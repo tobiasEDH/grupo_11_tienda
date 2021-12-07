@@ -150,4 +150,8 @@ main{
    .ofertas{
        padding-top: 26%;
    }
+   .productos img{
+        max-width: 168px;
+        max-height: 168px;
+   }
 }

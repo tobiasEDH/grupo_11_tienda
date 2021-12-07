@@ -11,22 +11,22 @@
     <main class="main-register">
         <section class="registro">
             <h2>EDITAR USUARIO</h2>
-        <form action="/usuario/<%= user.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <form action="/usuario/<%= user.id%>/editar" method="POST" enctype="multipart/form-data">
         <div class="left-register">
             
-                <input type="text" name="name" id="nameRegister" placeholder="<%= user.name%>">
+                <input type="text" name="name" id="nameRegister" value="<%= user.name%>">
             
-                <input type="text" name="lastName" id="apellidoRegister" placeholder="<%= user.lastName%>">
+                <input type="text" name="lastName" id="apellidoRegister" value="<%= user.lastName%>">
             <div class="perfil">
                 <label for="images">Foto de perfil:</label>
-                <% if(user.images){ %>
-                    <img id="imagePreview" src="/img/users/<%= user.images%>" alt="Preview">
+                <% if(user.image){ %>
+                    <img id="imagePreview" src="/img/users/<%= user.image%>" alt="Preview">
                 <%} %> 
                 <input type="file" name="images" id="imagenes" accept=".jpg , .png" multiple>
             </div>
-                <input type="email" name="email" id="emailRegister" placeholder="<%= user.email%>">
+                <input type="email" name="email" id="emailRegister" value="<%= user.email %>">
             
-                <input type="password" name="password" id="passwordRegister" placeholder="Contraseña">
+                <input type="password" name="password" id="passwordRegister" placeholder="Contraseña nueva">
 
                 <button type="submit" id="boton-registro">Guardar</button>
         </div>

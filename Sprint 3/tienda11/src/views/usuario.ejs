@@ -10,31 +10,9 @@
     
     <main class="main-register">
         <section class="registro">
-            <!--<h2>Detalle de usuario</h2>
-            <form action="/registro" method="POST">
-                <div class="left-register">
-                    
-                    <input type="text" name="name" id="nameRegister" value="<%= user.name%>">
-                
-                    <input type="text" name="lastName" id="apellidoRegister" value="<%= user.lastName%>">
-
-                    <label for="images">Foto de perfil:</label>
-                    <input type="file" name="images" id="imagenes" value="<%= user.images%>">
-                
-                    <input type="email" name="email" id="emailRegister" value="<%= user.email%>">
-                
-                    <input type="password" name="password" id="passwordRegister" placeholder="Contraseña">
-
-                    <button type="submit" id="boton-registro">Editar</button>
-                </div>
-                <div class="right-register">
-                    <label for="boton-ingreso">¿Ya tenés una cuenta?</label>
-                    <button id="boton-ingreso">Ingresar</button>
-                </div>
-            </form>-->
             <div class="perfil">
                 <div class="imagen">
-                    <img src="/img/users/<%= user.images%>" alt="">
+                    <img src="/img/users/<%= user.image %>" alt="">
                 </div>
                 <div class="informacion">
                     <h3><strong>Nombre: </strong><%= user.name %></h3>

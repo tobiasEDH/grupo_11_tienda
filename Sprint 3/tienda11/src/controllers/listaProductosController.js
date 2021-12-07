@@ -3,6 +3,7 @@ const path = require('path')
 const db = require('../../database/models')
 const Marca = db.Marcas
 const Producto = db.Productos
+const Categoria = db.Categorias
 
 const listaProductosController={
     listado: (req,res)=>{
@@ -26,9 +27,8 @@ const listaProductosController={
     crearProducto: (req,res)=>{
         Marca.findAll()
         .then((marcas)=>{
-            return res.render('crear-producto',{marcas})
+            res.render('crear-producto', {marcas})
         })
-       
     },
     enviarProducto: (req,res)=>{ 
         console.log(req.file)
@@ -60,7 +60,7 @@ const listaProductosController={
         {
             where: {id: req.params.id}
         })
-        res.redirect('../productos/'+req.params.id)
+        res.redirect('/productos/'+req.params.id)
     },
     borrarProducto: (req,res) => {
         Producto.destroy({

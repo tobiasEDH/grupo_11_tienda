@@ -9,7 +9,7 @@ module.exports = (sequelize, dataTypes) => {
         name: {
             type: dataTypes.STRING
         },
-        images: {
+        image: {
             type: dataTypes.STRING
         },
         lastName: {
@@ -27,5 +27,9 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false
     }
     const Usuario = sequelize.define(alias, cols, config)
+
+    
+
+
     return Usuario
 }

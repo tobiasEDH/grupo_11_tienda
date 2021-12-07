@@ -117,7 +117,8 @@ main{
     #imagePreview {
         width: 30%;
         border: 1px solid #ebebeb;
-        margin: 0 35%;
+        margin: 1% 35%;
+        box-shadow: 0px 0px 5px #646464;
     }
     .perfil {
         display: flex;

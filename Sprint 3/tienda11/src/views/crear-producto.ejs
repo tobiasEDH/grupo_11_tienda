@@ -22,12 +22,14 @@
 
             <label for="mark">Marca: </label>
             <select name="mark">
-                        <option value=""></option>
+                        <option value="" selected></option>
                 <% marcas.forEach(marca => { %>
                         <option value="<%= marca.id %>"><%= marca.name %> </option>
                 <% }) %>
             </select>
 
+
+            </select>
             <label for="precio">Precio: </label>
             <input type="number" name="price" id="precio" min="1">
 

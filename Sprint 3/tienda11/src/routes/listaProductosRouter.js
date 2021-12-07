@@ -30,13 +30,14 @@ router.post('/crear', upload.single('images'), listaProductosController.enviarPr
 // Muestra detalle de cada producto
 router.get('/:id', listaProductosController.detalle)
 
-router.post('/:id/editar', upload.single('images'),listaProductosController.enviarProductoEditado)
-
-router.post('/:id/borrar', listaProductosController.borrarProducto)
-
 // Edicion de producto
 router.get('/:id/editar', authMiddleware,listaProductosController.editarProducto)
+router.post('/:id/editar', upload.single('images'),listaProductosController.enviarProductoEditado)
 
+//
+router.post('/:id/borrar', listaProductosController.borrarProducto)
+
+//
 router.get('/carrito')
 
 module.exports= router;

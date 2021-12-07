@@ -119,5 +119,8 @@ main{
        padding-top: 1%;
        padding-bottom: 5vw;
    }
-   
+   .productos img{
+        max-width: 168px;
+        max-height: 168px;
+   }
 }
