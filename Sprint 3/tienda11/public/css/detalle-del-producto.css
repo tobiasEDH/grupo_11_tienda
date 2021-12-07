@@ -195,6 +195,7 @@ form select{
     .imagen-producto img{
         width: 100%;
         padding: 7px;
+        max-width: 325px;
     }
     .contenedor-main{
         flex-wrap: wrap;
