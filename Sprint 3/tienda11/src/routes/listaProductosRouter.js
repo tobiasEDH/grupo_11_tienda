@@ -40,4 +40,6 @@ router.post('/:id/borrar', listaProductosController.borrarProducto)
 //
 router.get('/carrito')
 
+router.post('/:id/agregar', listaProductosController.agregarProducto)
+
 module.exports= router;

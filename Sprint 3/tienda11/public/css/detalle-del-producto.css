@@ -175,6 +175,41 @@ form select{
     #titulo-codigo{
         width: 18%;
     }
+    .envio-retiro {
+        width: 100%;
+        display: flex;
+        margin: -1% 0% 0 0;
+        padding: 0% 0% 0% 0%;
+        flex-wrap: wrap;
+        flex-direction: row;
+        border-top: 1px solid #ebebeb;
+    }
+    .envio {
+        color: green;
+        width: 45%;
+        text-align: center;
+        padding: 0px 2%;
+        margin: 4% 2%;
+    }
+    .envio a{
+        text-decoration: none;
+        color: green;
+    }
+    .retiro {
+        border-left: 1px solid #ebebeb;
+        color: green;
+        width: 37%;
+        text-align: center;
+        padding: 0px 2%;
+        margin: 4% 3%;
+    }
+    .retiro a{
+        text-decoration: none;
+        color: green;
+    }
+    .fa-store-alt {
+        color: green;
+    }
 }
 
 @media (min-width:1200px){
@@ -246,7 +281,6 @@ form select{
     #precio-cuotas{
         width: 65%;
         align-self: center;
-        margin-left: 2%;
     }
     #precio-total{
         width: 100%;
@@ -350,5 +384,5 @@ form select{
         justify-content: center;
         margin-bottom: 10px;
     }
-       
+    
 }

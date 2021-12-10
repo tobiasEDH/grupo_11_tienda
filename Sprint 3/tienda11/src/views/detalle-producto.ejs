@@ -19,6 +19,16 @@
               <div class="imagen-producto">
                   <img src="/img/products/<%= producto.image %>">
                 </div>
+                <div class="envio-retiro">
+                  <div class="envio">
+                    <i class="fas fa-truck"></i>
+                    <a href="#">Envíos a todo el país 7 días hábiles</a>
+                  </div>
+                  <div class="retiro">
+                    <i class="fas fa-store-alt"></i>
+                    <a href="#">Retiro gratis en sucursal</a>
+                  </div>
+                </div>
             </section>
             <section class="right">
               <div class="producto-precio">
@@ -58,12 +68,12 @@
                 <div class="informacion-bottom">
                     <img src="/img/tarjetas.png">
                     <p id="precio-cuotas">12 x $6.666,67 sin interés</p>
-                    <p id="precio-total">Precio total: $<%= producto.price %></p>
+                    <p id="precio-total">Precio total: $<%= producto.price.toLocaleString("es",{minimumFractionDigits: 0}) %></p>
                     <p>CFT: 0% / TEA: 0% </p>
                 </div>
               </div>
               <div class="botones">
-                <form action="/productos/carrito" method="GET">
+                <form action="/productos/<%= producto.id %>/agregar" method="post">
                  <button type="submit" class="boton-compra">Agregar al carrito</button>
                 </form>
                 <% if(locals.isLogged){ %>

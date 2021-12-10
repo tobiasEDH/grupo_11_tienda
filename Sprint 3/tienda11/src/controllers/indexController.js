@@ -6,6 +6,7 @@ const UserModel = require('../models/User.js')
 const db = require('../../database/models')
 const Producto = db.Productos
 const Sequelize = require('sequelize')
+const { STRING } = require('sequelize')
 const Op = Sequelize.Op
 
 const indexController={
@@ -52,11 +53,12 @@ const indexController={
     search: (req,res)=>{
         Producto.findAll({
             where: {
-                search: {[Op.like]:'%'+ req.params.search + '%'}
+                name: {[Op.like]:'%'+ req.query.search + '%'}
             }
         })
-            .then((resultado)=>{
-                return res.render('resultado',{productos: resultado})
+            .then((productos)=>{
+                // console.log(productos)
+                return res.render('resultado',{productos})
             })
     }
 }

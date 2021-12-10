@@ -25,14 +25,14 @@ main{
     text-decoration: none;
     color: #000;
 }
-.productos{
+.usuarios{
     background-color: #ffffff;
     border-radius: 7px;
     padding: 2px 10px;
     margin-bottom: 25px;
     box-shadow: 0px 1px 5px #646464;
 }
-.productos img{
+.usuarios img{
     width: 50%;
     margin: 5% 25%;
 }
@@ -62,7 +62,7 @@ main{
 /*Media quires - Tablet*/
 
 @media (min-width:768px){
-   .productos{
+   .usuarios{
     display: inline-block;
     width: 45%;
     margin: 0px 10px 25px;
@@ -84,7 +84,7 @@ main{
     .ofertas {
         margin-bottom: 15%;
     }
-   .productos{
+   .usuarios{
     display: inline-block;
     width: 40%;
     margin: 0px 10px 25px;
@@ -109,10 +109,10 @@ main{
    #producto-nombre p{
        font-size: 10px;
    }
-   .productos:hover #producto-nombre{
+   .usuarios:hover #producto-nombre{
     opacity: 1;
    }
-   .productos:hover{
+   .usuarios:hover{
     box-shadow: 0px 1px 5px #646464;
    }
    main{

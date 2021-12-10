@@ -4,6 +4,7 @@ const db = require('../../database/models')
 const Marca = db.Marcas
 const Producto = db.Productos
 const Categoria = db.Categorias
+const ProductosEnCarrito = db.ProductosEnCarrito
 
 const listaProductosController={
     listado: (req,res)=>{
@@ -73,6 +74,16 @@ const listaProductosController={
         .then((productos)=>{
             return res.render('listadoProductos',{productos})
         })
+    },
+    agregarProducto: (req, res)=>{
+        Producto.findByPk(req.params.id)
+            .then(producto => {
+                // ProductosEnCarrito.create({
+                //     id_product: producto.id,
+                //     price: producto.price
+                // })
+                console.log(producto)
+            })
     }
 }
 module.exports= listaProductosController;

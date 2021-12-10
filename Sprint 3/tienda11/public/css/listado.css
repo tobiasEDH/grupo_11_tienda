@@ -123,4 +123,9 @@ main{
         max-width: 168px;
         max-height: 168px;
    }
+   .item {
+    min-height: 206.1px;
+    display: flex;
+    align-items: center;
+    }
 }

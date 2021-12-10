@@ -15,7 +15,7 @@
                 <img src="/img/products/<%= productos.image%>">
             </div>
             <div class="detalle">
-                <p id="precio">$<%= productos.price %></p>
+                <p id="precio">$<%= productos.price.toLocaleString("es",{minimumFractionDigits: 0}) %></p>
                 <% if(productos.discount >= 1){  %> 
                 <p id="descuento"><%= productos.discount%>% OFF</p>
                 <% } %> 
