@@ -13,13 +13,15 @@
             <h2>REGISTRO</h2>
         <form action="/usuario/registro" method="POST"enctype="multipart/form-data">
         <div class="left-register">
-            <input type="text" name="name" id="nameRegister" placeholder="Nombre completo">
+            <input type="text" name="name" id="nameRegister" placeholder="Nombre">
+            <p id="validationName"></p>
             <% if(locals.errors){ %>
                 <% if(errors.name){ %>
                     <p class="errorMsg"><%= errors.name.msg%></p>
                 <%} %> 
             <%} %> 
-            <input type="text" name="lastName" id="apellidoRegister" placeholder="Apellido">
+            <input type="text" name="lastName" id="lastNameRegister" placeholder="Apellido">
+            <p id="validationLastName"></p>
             <% if(locals.errors){ %>
                 <% if(errors.lastName){ %>
                     <p class="errorMsg"><%= errors.lastName.msg%></p>
@@ -66,5 +68,6 @@
     <footer  class="foot">
         <%- include('partials/footer.ejs') %>
     </footer>
+    <script src="/js/register.js"></script>
 </body>
 </html>

@@ -255,7 +255,6 @@ form select{
         width: 60%;
         height: 30.7vw;
         border-right: 1px solid #ebebeb;
-        border-bottom: 1px solid #ebebeb;
     }
     .right {
         width: 40%;
@@ -384,5 +383,7 @@ form select{
         justify-content: center;
         margin-bottom: 10px;
     }
-    
+    .envio-retiro{
+        margin: 8% 0 0 0;
+    }
 }
