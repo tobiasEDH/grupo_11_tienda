@@ -9,17 +9,17 @@
     <%- include('partials/header.ejs') %>
     <main>
         <% productos.forEach(productos=>{ %>
-        <a id="link-producto" href="/productos/<%= productos.id %>">
+        <a id="link-producto" href="/productos/<%= productos.ID_Producto %>">
             <article class="productos">
             <div class="item">
-                <img src="/img/products/<%= productos.image%>">
+                <img src="/img/products/<%= productos.Imagen%>">
             </div>
             <div class="detalle">
-                <p id="precio">$<%= productos.price.toLocaleString("es",{minimumFractionDigits: 0}) %></p>
-                <% if(productos.discount >= 1){  %> 
-                <p id="descuento"><%= productos.discount%>% OFF</p>
-                <% } %> 
-                <p id="producto-nombre"><%= productos.name%></p>
+                <p id="precio">$<%= productos.Precio %></p>
+                
+                <p id="descuento"><%= productos.Descuento%>% OFF</p>
+                
+                <p id="producto-nombre"><%= productos.Nombre%></p>
             </div>
         </article>
         </a>

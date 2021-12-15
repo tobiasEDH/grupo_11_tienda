@@ -15,44 +15,22 @@
    <section class="ofertas">
     <h3 id="TituloOferta">Ofertas</h3>
 <% productos.forEach(productos=>{ %>
-  <% if(productos.discount > 0){ %>
-    <a href="/productos/<%= productos.id %>"> 
+  <% if(productos.Descuento > 0){ %>
+    <a href="/productos/<%= productos.ID_Producto %>"> 
       <article class="productos">
          <div class="item">
-           <img src="/img/products/<%= productos.image %>">
+           <img src="/img/products/<%= productos.Imagen %>">
          </div>
          <div class="detalle">
-           <p id="precio">$<%= productos.price.toLocaleString("es",{minimumFractionDigits: 0})%></p> 
-           <p id="descuento"><%= productos.discount %>% OFF</p>
-           <p id="producto-nombre"><%= productos.name %></p>
+           <p id="precio">$<%= productos.Precio %></p> 
+           <p id="descuento"><%= productos.Descuento %>% OFF</p>
+           <p id="producto-nombre"><%= productos.Nombre %></p>
          </div>
       </article>
     </a>
   <% } %>
 <% }) %>
-   </section>
-   <section class="categorias">
-    <h3>Categorias</h3>
-      <div class="contenedorTotal">
-        <div class="contenedores">
-          <a href="#">
-            <img src="/img/category/img-monitor-34.png">
-            <h5>Computadoras</h5>
-          </a>
-        </div>
-        <div class="contenedores">
-          <a href="#">
-            <img src="/img/category/img-lavarropa.png">
-            <h5>Baño</h5>
-          </a>
-        </div>
-        <div class="contenedores">
-          <a href="#">
-            <img src="/img/category/img-heladera-patrick.png">
-            <h5>Cocina</h5>
-          </a>
-        </div>
-      </div>
+
    </section>
  </main>
  

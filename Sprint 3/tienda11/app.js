@@ -6,6 +6,7 @@ const app = express();
 const rutasIndex = require('./src/routes/indexRouter.js');
 const rutasProductos = require('./src/routes/listaProductosRouter.js');
 const rutasUsers = require('./src/routes/usersRouter.js');
+const rutasApi = require('./src/routes/apiRouter.js')
 const port = 3000;
 const methodOverride = require('method-override');
 const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware.js');
@@ -34,6 +35,7 @@ app.use(methodOverride('_method'));
 app.use('/', rutasIndex);
 app.use('/productos', rutasProductos);
 app.use('/usuario', rutasUsers);
+app.use('/api', rutasApi)
 
 app.listen(port, ()=>{
     console.log('Servidor funcionando en http://localhost:' + port);

@@ -25,9 +25,13 @@
                 <form method="POST" action="/usuario/<%= user.id%>?_method=DELETE">
                     <button type="submit" onsubmit="confirmSubmit()" id="borrar">Borrar</button>
                 </form>
+                <% if(locals.userLogged.ID_Usuario == user.id){ %> 
                 <button onclick="window.location.href='/usuario/logout'" id="sesion">Cerrar Sesión</button>
+                <% } %> 
             </div>
+            <% if(locals.userLogged.isAdmin){ %> 
             <a href="/usuario">Listado de usuarios</a>
+            <% } %> 
         </section>
     </main>
     <footer  class="foot">

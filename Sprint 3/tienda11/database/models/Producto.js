@@ -1,23 +1,23 @@
 module.exports = (sequelize, dataTypes) => {
     let alias = "Productos"
     let cols = {
-        id: {
+        ID_Producto: {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        name: {
+        Nombre: {
             type: dataTypes.STRING
         },
-        image: {
+        Imagen: {
             type: dataTypes.STRING
         },
-        discount: {
+        Descuento: {
             type: dataTypes.INTEGER,
             allowNull: true,
             default: 0
         },
-        price: {
+        Precio: {
             type: dataTypes.FLOAT
         },
         description: {
@@ -25,20 +25,25 @@ module.exports = (sequelize, dataTypes) => {
         }
     }
     let config = {
-        tableName: "product",
+        tableName: "producto",
         timestamps: false
     }
     const Producto = sequelize.define(alias, cols, config)
 
     Producto.associate = function(models){
-        Producto.hasOne(models.Carritos, {
-            as: "carts",
-            foreignKey: "id_cart"
+        Producto.hasMany(models.CategoriasPorProducto, {
+            foreignKey: 'ID_Producto',
+            as: 'CategoriasPorProducto'
         })
-        // Producto.hasMany(models.ProductosEnCarrito)
-        // Producto.hasMany(models.ColoresPorProducto)
-        // Producto.hasMany(models.CategoriasPorProducto)
-        Producto.belongsTo(models.Marcas, { as:"mark" ,foreignKey: "id_mark" })
+        Producto.hasMany(models.ColoresPorProducto, {
+            foreignKey: 'ID_Producto',
+            as: 'ColoresPorProducto'
+        })
+        Producto.hasMany(models.ProductosEnCarrito, {
+            foreignKey: 'ID_Producto',
+            as: 'ProductosEnCarrito'
+        })
+        Producto.belongsTo(models.Marcas, { as:"Marca", foreignKey: "ID_Marca" })
     }
     return Producto
 }

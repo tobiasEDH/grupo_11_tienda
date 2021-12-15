@@ -6,6 +6,9 @@ CREATE TABLE `carrito` (
   PRIMARY KEY (`ID_Carrito`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+INSERT INTO electrohouse.carrito
+(Nombre_Comprador, Cant_Items_Total, Precio_Total)
+VALUES('Tobias', 0, 0),('Santiago', 0, 0);
 
 -- electrohouse.marca definition
 
@@ -14,6 +17,10 @@ CREATE TABLE `marca` (
   `Nombre` varchar(100) NOT NULL,
   PRIMARY KEY (`ID_Marca`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO electrohouse.marca
+(Nombre)
+VALUES('BGH'),('TopHouse'),('Samsung'),('Apple'),('Logitech'),('LG'),('Patrick');
 
 
 -- electrohouse.categoria definition
@@ -48,6 +55,16 @@ CREATE TABLE `producto` (
   CONSTRAINT `producto_FK` FOREIGN KEY (`ID_Marca`) REFERENCES `marca` (`ID_Marca`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+INSERT INTO electrohouse.producto
+(Nombre, Imagen, Descuento, Precio, ID_Marca)
+VALUES('Volante Logitech G29', 'volante.jpg', 0, 40000, 5),
+('Heladera Patrick', 'img-heladera-patrick.jpg', 10, 20000, 7),
+('Lavarropa Samsung', 'img-lavarropa.jpg', 0, 35000, 3),
+('Monitor LG ´34', 'img-monitor-34.jpg', 50, 15000, 6),
+('Horno Eléctrico TopHouse', 'img-hornito-electrico.jpg', 15, 12000, 2),
+('Apple Homepod', 'homepod.jpg', 15, 30000, 4),
+('Aire Acondicionado BGH', 'aire-acondicionado-bgh.jpg', 0, 43000, 1);
+
 
 -- electrohouse.usuario definition
 
@@ -64,6 +81,9 @@ CREATE TABLE `usuario` (
   CONSTRAINT `usuario_FK` FOREIGN KEY (`ID_Carrito`) REFERENCES `carrito` (`ID_Carrito`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+INSERT INTO electrohouse.usuario
+(Nombre, Imagen, Apellido, Email, Contraseña, ID_Carrito)
+VALUES('Tobias', '1638471667281-foto-tobias.jpg', 'Elkowich', 'tobias.elkowich@gmail.com', '$2a$10$LNTC7oPnDFeVjoJDRv.nXO1HxAFFe5PE0En/ET2RULO.23DbJ6tse', 1), ('Santiago', '1638554255545-foto-santiago.jpg', 'Chappa', 'santiago.chappa@gmail.com', '$2a$10$8HX9CowevrZLjsWZ1SsBMObvE8ishkXM58reLni49XnjUO8AH1Cam', 2);
 
 -- electrohouse.categoriaporproducto definition
 

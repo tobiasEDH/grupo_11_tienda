@@ -2,23 +2,22 @@ const fs = require('fs')
 const path = require('path')
 const db = require('../../database/models')
 const Marca = db.Marcas
-const Producto = db.Productos
-const Categoria = db.Categorias
-const ProductosEnCarrito = db.ProductosEnCarrito
+const Producto = require('../models/Producto.js')
 
 const listaProductosController={
-    listado: (req,res)=>{
-        Producto.findAll()
-            .then((productos)=>{
-                return res.render('listado', { productos })        
-            })
-        
-    },
-    detalle: (req,res)=>{
-        Producto.findByPk(req.params.id)
-            .then((producto)=>{
-            return res.render('detalle-producto',{producto})
+    listado: async (req,res)=>{
+        let products = await Producto.getProductos()
+        let temp = []
+        products.forEach(producto => {
+            temp.push(producto.dataValues)
         })
+        res.render('listado', { productos: temp })
+    },
+    detalle: async (req,res)=>{
+        let detalleProducto = await Producto.getProductoByID(req.params.id)
+        if(detalleProducto.dataValues){
+            res.render('detalle-producto',{ producto: detalleProducto.dataValues })
+        }
         /*if(productoDetalle != undefined || productoDetalle != null){
             res.render('detalle-producto', {producto: productoDetalle})
         }else{
@@ -28,18 +27,16 @@ const listaProductosController={
     crearProducto: (req,res)=>{
         Marca.findAll()
         .then((marcas)=>{
-            res.render('crear-producto', {marcas})
+            return res.render('crear-producto',{marcas})
         })
     },
     enviarProducto: (req,res)=>{ 
-        console.log(req.file)
         Producto.create({
             name: req.body.name,
             discount: req.body.discount,
             image: req.file.filename,
             id_mark: req.body.mark,
-            price: req.body.price,
-            description: req.body.description
+            price: req.body.price
         })
             res.redirect('../productos')
     },
@@ -55,35 +52,26 @@ const listaProductosController={
             discount: req.body.discount,
             image: req.file.filename,
             id_mark: req.body.mark,
-            price: req.body.price,
-            description: req.body.description
+            price: req.body.price
         },
         {
             where: {id: req.params.id}
         })
-        res.redirect('/productos/'+req.params.id)
+        res.redirect('../productos/'+req.params.id)
     },
     borrarProducto: (req,res) => {
         Producto.destroy({
             where: {id: req.params.id}
         })
-        res.redirect('http://localhost:3000/productos')
+        res.render('listado', { productos })
     },
-    listadoProducto: (req,res)=>{
-        Producto.findAll()
-        .then((productos)=>{
-            return res.render('listadoProductos',{productos})
+    listadoProducto: async (req,res)=>{
+        let products = await Producto.getProductos()
+        let temp = []
+        products.forEach(producto => {
+            temp.push(producto.dataValues)
         })
-    },
-    agregarProducto: (req, res)=>{
-        Producto.findByPk(req.params.id)
-            .then(producto => {
-                // ProductosEnCarrito.create({
-                //     id_product: producto.id,
-                //     price: producto.price
-                // })
-                console.log(producto)
-            })
+        res.render('listado', { productos: temp })
     }
 }
 module.exports= listaProductosController;
