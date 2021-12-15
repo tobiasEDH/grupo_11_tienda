@@ -1,39 +1,35 @@
 module.exports = (sequelize, dataTypes) => {
     let alias = "Usuarios"
     let cols = {
-        ID_Usuario: {
+        id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        Nombre: {
+        name: {
             type: dataTypes.STRING
         },
-        Imagen: {
+        image: {
             type: dataTypes.STRING
         },
-        Apellido: {
+        lastName: {
             type: dataTypes.STRING
         },
-        Email: {
+        email: {
             type: dataTypes.STRING
         },
-        Contraseña: {
+        password: {
             type: dataTypes.STRING(500)
         }
     }
     let config = {
-        tableName: "usuario",
+        tableName: "user",
         timestamps: false
     }
     const Usuario = sequelize.define(alias, cols, config)
 
-    Usuario.associate = function(models){
-        Usuario.belongsTo(models.Carritos, {
-            as: "Carrito",
-            foreignKey: 'ID_Carrito'
-        })
-    }
+    
+
 
     return Usuario
 }

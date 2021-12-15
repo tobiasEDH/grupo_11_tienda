@@ -3,18 +3,18 @@
 <head>
     <%- include('partials/head.ejs') %>
     <link href="/css/listado-usuarios.css" rel="stylesheet">
-    <title>Listado de productos</title>
+    <title>Listado de usuarios</title>
 </head>
 <body>
     <%- include('partials/header.ejs') %>
     <main>
-        <% users.forEach(user=>{ %>
-        <a id="link-usuario" href="/usuario/<%= user.ID_Usuario %>">
-            <article class="productos">
-            <img src="/img/users/<%= user.Imagen%>" alt="">
-            <h3><strong>Nombre: </strong><%= user.Nombre%></h3>
-            <h3><strong>Apellido: </strong><%= user.Apellido%></h3>
-            <h3><strong>Email: </strong><%= user.Email%></h3>
+        <% users.forEach((users) =>{ %>
+        <a id="link-usuario" href="/usuario/<%= users.id %>">
+            <article class="usuarios">
+            <img src="/img/users/<%= users.image %>" alt="">
+            <h3><strong>Nombre: </strong><%= users.name %></h3>
+            <h3><strong>Apellido: </strong><%= users.lastName %></h3>
+            <h3><strong>Email: </strong><%= users.email %></h3>
         </article>
         </a>
         <% }) %>
